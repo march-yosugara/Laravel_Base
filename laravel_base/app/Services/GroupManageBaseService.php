@@ -38,6 +38,13 @@ class GroupManageBaseService
       $group->group_pass = password_hash($group_columns['group_pass'], PASSWORD_DEFAULT);
       $group->save();
 
+      // $condition = [
+      //   ['group_id', '=', $group_columns['group_id']],
+      // ];
+      // $group_columns['group_pass'] = password_hash($group_columns['group_pass'], PASSWORD_DEFAULT);
+      // Groups::where($condition)
+      //   ->update($group_columns);
+
       DB::commit();
       return true;
     } catch (Exception $e) {
@@ -77,8 +84,13 @@ class GroupManageBaseService
     DB::beginTransaction();
 
     try {
+      $usergroup_columns = array();
       $usergroup_columns['user_id'] = Auth::user()->id;
       $usergroup_columns['group_id'] = $group_id;
+      // $usergroup_columns = [
+      //   ['user_id' => Auth::user()->id],
+      //   ['group_id' => $group_id],
+      // ];
       UsersGroups::create($usergroup_columns);
       DB::commit();
 

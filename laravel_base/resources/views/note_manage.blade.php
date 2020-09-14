@@ -20,7 +20,7 @@ Note Manage
   </select>
 </div>
 <div class="card add_note">
-  <input id="note_name" type="text" class="form-control" name="note_name" required placeholder="Note name">
+  <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100" placeholder="Note name">
   <button id="btn_create" type=“button” class="btn btn-light">Create Note</button>
 </div>
 @endif

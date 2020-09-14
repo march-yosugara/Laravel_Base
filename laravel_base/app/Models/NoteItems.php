@@ -14,6 +14,19 @@ class NoteItems extends Model
 
   protected $dates = ['created_at', 'updated_at'];
 
+  protected $fillable = [
+    'group_id',
+    'note_id',
+    'note_item_id',
+    'note_item_title',
+    'str1',
+    'int1',
+    'unit1',
+    'str2',
+    'int2',
+    'unit2',
+  ];
+
   public static function getNextItemID($group_id, $note_id)
   {
     $condition = [

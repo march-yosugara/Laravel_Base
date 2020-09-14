@@ -11,7 +11,7 @@ use Exception;
 
 class NoteManageBaseService
 {
-  // グループ作成
+  // ノート作成
   public function createNote($note_columns)
   {
     DB::beginTransaction();
@@ -27,16 +27,52 @@ class NoteManageBaseService
     }
   }
 
-  // グループ編集
-  public function updateGroup($group_columns)
+  // ノート作成
+  public function updateNote($note_columns)
   {
     DB::beginTransaction();
 
     try {
-      $group = Groups::getGroup($group_columns['group_id']);
-      $group->group_name = $group_columns['group_name'];
-      $group->group_pass = password_hash($group_columns['group_pass'], PASSWORD_DEFAULT);
-      $group->save();
+      Notes::create($note_columns);
+      DB::commit();
+
+      return true;
+    } catch (Exception $e) {
+      DB::rollback();
+      return false;
+    }
+  }
+
+  public function getNoteInfo($group_id, $note_id)
+  {
+    $condition = [
+      ['group_id', '=', $group_id],
+      ['note_id', '=', $note_id],
+    ];
+    $note = Notes::where($condition)->first();
+    $note_items = $note->getNoteItems();
+
+    return conpact('note', 'note_items');
+  }
+
+  // ノート編集
+  public function updateNoteItems($group_id, $note_id, $note_items)
+  {
+    DB::beginTransaction();
+
+    try {
+      foreach($note_items as $item)
+      {
+        $condition = [
+          ['group_id', '=', $group_id],
+          ['note_id', '=', $note_id],
+          ['note_item_id', '=', $item['note_item_id']],
+        ];
+        unset($item['note_item_id']);
+
+        NoteItems::where($condition)
+          ->update($item);
+      }
 
       DB::commit();
       return true;
@@ -46,61 +82,18 @@ class NoteManageBaseService
     }
   }
 
-  // グループ削除
-  public function deleteGroup($group_id)
+  // ノート削除
+  public function deleteNote($group_id, $note_id)
   {
     DB::beginTransaction();
 
     try {
       $condition = [
         ['group_id', '=', $group_id],
+        ['note_id', '=', $note_id],
       ];
 
-      $deleted = Groups::where($condition)->delete();
-
-      if ($deleted == 1) {
-        DB::commit();
-        return true;
-      } else {
-        DB::rollback();
-        return false;
-      }
-    } catch (Exception $e) {
-      DB::rollback();
-      return false;
-    }
-  }
-
-  // グループ追加
-  public function addGroup($group_id)
-  {
-    DB::beginTransaction();
-
-    try {
-      $usergroup_columns['user_id'] = Auth::user()->id;
-      $usergroup_columns['group_id'] = $group_id;
-      UsersGroups::create($usergroup_columns);
-      DB::commit();
-
-      return true;
-    } catch (Exception $e) {
-      DB::rollback();
-      return false;
-    }
-  }
-
-  // グループ解除
-  public function removeGroup($group_id)
-  {
-    DB::beginTransaction();
-
-    try {
-      $condition =
-        [
-          ['user_id', Auth::user()->id],
-          ['group_id', $group_id],
-        ];
-      $deleted = UsersGroups::where($condition)->delete();
+      $deleted = Notes::where($condition)->delete();
 
       if ($deleted == 1) {
         DB::commit();

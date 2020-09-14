@@ -58,6 +58,11 @@ class GroupManageController extends Controller
     $group_columns['group_id'] = Groups::getPrimary();
     $group_columns['group_name'] = $form['group_name'];
     $group_columns['group_pass'] = $form['group_pass'];
+    // $group_columns = [
+    //   ['group_id' => Groups::getPrimary()],
+    //   ['group_name' => $form['group_name']],
+    //   ['group_pass' => $form['group_pass']],
+    // ];
     $ret = $this->service->createGroup($group_columns);
     $message = $ret ? 'Group created : ' . $form['group_name'] : 'Group create failed.';
 
@@ -124,6 +129,11 @@ class GroupManageController extends Controller
       $group_columns['group_id'] = $form['group_id'];
       $group_columns['group_name'] = $form['group_name'];
       $group_columns['group_pass'] = $form['group_pass'];
+      // $group_columns = [
+      //   ['group_id' => $form['group_id']],
+      //   ['group_name' => $form['group_name']],
+      //   ['group_pass' => $form['group_pass']],
+      // ];
       $ret = $this->service->updateGroup($group_columns);
       $message = $ret ? 'Group updated : ' . $form['group_name'] : 'Group update failed.';
 

@@ -35,9 +35,9 @@
                 '  <h5 class="card-subtitle mb-2 text-muted note_id">ID : ' + item.note_id + '</h5>',
                 '  <div class="row">',
                 '    <button type=“button” class="btn btn-outline-primary col-5"',
-                '      onclick="location.href=' + urlEdit + '">Edit</button>',
+                '      onclick="window.open(\'' + urlEdit + '\',\'_blank\'">Edit</button>',
                 '    <button type=“button” class="btn btn-outline-light col-5"',
-                '      onclick="location.href=' + urlRead + '">Read</button>',
+                '      onclick="window.open(\'' + urlRead + '\',\'_blank\'">Read</button>',
                 '  </div >',
                 '</div >',
               ];
