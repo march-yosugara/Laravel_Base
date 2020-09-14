@@ -1,0 +1,47 @@
+.note_card {
+  width: 50%;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+}
+
+.note_card .row {
+  width: 100%;
+  margin: auto;
+}
+
+.note_card .note_name {
+  margin-left: 2rem;
+}
+
+.note_card .note_id {
+  margin-left: 4rem;
+}
+
+.note_card button {
+  padding: 0.2rem 1rem;
+  margin: 0 1rem;
+}
+
+.group,
+.add_note {
+  width: 50%;
+  margin: 2rem auto;
+}
+
+.group select {
+  width: 95%;
+  font-weight: bold;
+  margin: 0.5rem auto 0;
+}
+
+.group option {
+  font-weight: bold;
+}
+
+.group button,
+.add_note button {
+  width: 95%;
+  font-weight: bold;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem auto;
+}

@@ -1,0 +1,50 @@
+.group_card {
+  width: 50%;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+}
+
+.group_card .row {
+  width: 100%;
+  margin: auto;
+}
+
+.group_card .group_name {
+  margin-left: 2rem;
+}
+
+.group_card .group_id {
+  margin-left: 4rem;
+}
+
+.group_card button {
+  padding: 0.2rem 1rem;
+  margin: 0 1rem;
+}
+
+.add_group {
+  width: 50%;
+  margin: 2rem auto;
+}
+
+.add_group select {
+  width: 95%;
+  font-weight: bold;
+  margin: 0.5rem auto 0;
+}
+
+.add_group input {
+  width: 95%;
+  margin: 0.5rem auto 0;
+}
+
+.add_group option {
+  font-weight: bold;
+}
+
+.add_group button {
+  width: 95%;
+  font-weight: bold;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem auto;
+}
