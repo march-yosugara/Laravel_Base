@@ -118,3 +118,15 @@ DB_PASSWORD=secret
   ~~~bash
   npm run watch
   ~~~
+
+## サーバデプロイ
+
+レンタルサーバは「**エックスサーバー**」を選択  
+サポートしているDBは「*MYSQL*」になるため、構築SQL作成時に注意。  
+(型以外はほぼ同じ)  
+
+### 参考
+
+[エックスサーバー](https://www.xserver.ne.jp/)  
+[デプロイその１](https://qiita.com/n_oshiumi/items/2a1cc7d147ee1eff3e23)  
+[デプロイその２](https://naoya-ono.com/blog/deploy-laravel-xserver/)  

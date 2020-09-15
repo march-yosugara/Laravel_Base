@@ -3,7 +3,7 @@
 
   const form_names = {
     inputs: [
-      'note_title',
+      'note_item_title',
       'str1',
       'int1',
       'unit1',
@@ -27,8 +27,8 @@
 
       var items = {};
       $('.note_item').forEach(function (item, index) {
-        item.find('columns').val();
         var item_columns = {};
+        item_columns['note_item_id'] = item.attr('id');
         form_names.inputs.forEach(function (name) {
           item_columns[name] = item.find('input[name="' + name + '"]').val();
         });
@@ -77,9 +77,9 @@
   function createItem(item) {
     const div = [
       '<div class="card note_item" id="' + item.note_item_id + '">',
-      '  <div class="card-header note_title">',
-      '    <input name="note_title" type="text" class="form-control col-4"',
-      '      maxlength="100" placeholder="Item title" value="' + item.note_item_title + '">',
+      '  <div class="card-header note_item_title">',
+      '    <input name="note_item_title" type="text" class="form-control"',
+      '      maxlength="100" placeholder="Note item title" value="' + item.note_item_title + '">',
       '  </div>',
       '  <div class="row item1">',
       '    <input name="str1" type="text" class="form-control col-4"',
@@ -99,7 +99,7 @@
       '  </div>',
       '  <div class="row item_memo">',
       '    <textarea name="memo" type="text" class="form-control col-10" rows="3"',
-      '      placeholder="Note Item Memo">' + item.memo + '</textarea>',
+      '      placeholder="Note item memo">' + item.memo + '</textarea>',
       '  </div>',
       '</div>',
     ];

@@ -11,18 +11,21 @@ Note Manage
 @section('contents')
 @auth
 @if(count($groups) > 0)
-<div class="card group" id="group">
-  <select name="group_id" id="group_id" class="form-control">
-    <option value=""></option>
-    @foreach($groups as $group)
-    <option value="{{ $group->group_id }}">{{ $group->group_name }}</option>
-    @endforeach
-  </select>
-</div>
-<div class="card add_note">
-  <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100" placeholder="Note name">
-  <button id="btn_create" type=“button” class="btn btn-light">Create Note</button>
-</div>
+<form>
+  @csrf
+  <div class="card group" id="group">
+    <select name="group_id" id="group_id" class="form-control">
+      <option value=""></option>
+      @foreach($groups as $group)
+      <option value="{{ $group->group_id }}">{{ $group->group_name }}</option>
+      @endforeach
+    </select>
+  </div>
+  <div class="card add_note">
+    <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100" placeholder="Note name">
+    <button id="btn_create" type=“button” class="btn btn-light">Create Note</button>
+  </div>
+</form>
 @endif
 @endauth
 @endsection

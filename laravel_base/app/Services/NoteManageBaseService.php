@@ -59,16 +59,21 @@ class NoteManageBaseService
     DB::beginTransaction();
 
     try {
-      foreach ($note_items as $item) {
-        $condition = [
-          ['group_id', '=', $group_id],
-          ['note_id', '=', $note_id],
-          ['note_item_id', '=', $item['note_item_id']],
-        ];
-        unset($item['note_item_id']);
+      // 既存Item削除
+      $condition = [
+        ['group_id', '=', $group_id],
+        ['note_id', '=', $note_id],
+      ];
+      NoteItems::where($condition)
+        ->delete();
 
-        NoteItems::where($condition)
-          ->update($item);
+      // 改めてItem作成
+      foreach ($note_items as $key => $item) {
+        $item['group_id'] = $group_id;
+        $item['note_id'] = $note_id;
+        $item['note_item_id'] = $key;
+
+        NoteItems::create($item);
       }
 
       DB::commit();
