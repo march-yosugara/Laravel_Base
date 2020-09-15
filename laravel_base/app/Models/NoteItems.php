@@ -25,6 +25,7 @@ class NoteItems extends Model
     'str2',
     'int2',
     'unit2',
+    'memo',
   ];
 
   public static function getNextItemID($group_id, $note_id)

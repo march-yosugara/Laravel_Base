@@ -4,8 +4,6 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Notes;
-use App\Models\Groups;
-use App\Models\UsersGroups;
 use Auth;
 use Exception;
 
@@ -61,8 +59,7 @@ class NoteManageBaseService
     DB::beginTransaction();
 
     try {
-      foreach($note_items as $item)
-      {
+      foreach ($note_items as $item) {
         $condition = [
           ['group_id', '=', $group_id],
           ['note_id', '=', $note_id],

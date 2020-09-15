@@ -11,7 +11,8 @@ Note Edit
 @section('contents')
 @auth
 <div class="card note_name">
-  <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100" placeholder="Note name">
+  <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100"
+    placeholder="Note name">
   <input id="group_id" type="hidden" name="group_id" value="{{ $note->group_id }}">
   <input id="note_id" type="hidden" name="note_id" value="{{ $note->note_id }}">
 </div>
@@ -19,24 +20,26 @@ Note Edit
 @foreach($note_items as $item)
 <div class="card note_item" id="{{ $item->note_item_id }}">
   <div class="card-header note_title">
-    <input name="note_title" type="text" class="form-control col-4"
-      maxlength="100" placeholder="Item1 String" value="{{ $item->note_item_title }}">
+    <input name="note_title" type="text" class="form-control col-4" maxlength="100" placeholder="Item1 String"
+      value="{{ $item->note_item_title }}">
   </div>
   <div class="row item1">
-    <input name="str1" type="text" class="form-control col-4"
-      maxlength="100" placeholder="Item1 String" value="{{ $item->str1 }}">
-    <input name="int1" type="number" class="form-control col-4"
-      placeholder="Item1 Integer" value="{{ $item->int1 }}">
-    <input name="unit1" type="text" class="form-control col-2"
-      maxlength="10" placeholder="Item1 Unit" value="{{ $item->unit1 }}">
+    <input name="str1" type="text" class="form-control col-4" maxlength="100" placeholder="Item1 String"
+      value="{{ $item->str1 }}">
+    <input name="int1" type="number" class="form-control col-4" placeholder="Item1 Integer" value="{{ $item->int1 }}">
+    <input name="unit1" type="text" class="form-control col-2" maxlength="10" placeholder="Item1 Unit"
+      value="{{ $item->unit1 }}">
   </div>
   <div class="row item2">
-    <input name="str2" type="text" class="form-control col-4"
-      maxlength="100" placeholder="Item2 String" value="{{ $item->str2 }}">
-    <input name="int2" type="number" class="form-control col-4"
-      placeholder="Item2 Integer" value="{{ $item->int2 }}">
-    <input name="unit2" type="text" class="form-control col-2"
-      maxlength="10" placeholder="Item2 Unit" value="{{ $item->unit2 }}">
+    <input name="str2" type="text" class="form-control col-4" maxlength="100" placeholder="Item2 String"
+      value="{{ $item->str2 }}">
+    <input name="int2" type="number" class="form-control col-4" placeholder="Item2 Integer" value="{{ $item->int2 }}">
+    <input name="unit2" type="text" class="form-control col-2" maxlength="10" placeholder="Item2 Unit"
+      value="{{ $item->unit2 }}">
+  </div>
+  <div class="row item_memo">
+    <textarea name="memo" type="text" class="form-control col-10" rows="3"
+      placeholder="Note Item Memo">{{ $item->memo }}</textarea>
   </div>
 </div>
 @endforeach
