@@ -37,13 +37,12 @@ class Notes extends Model
     $condition = [
       ['group_id', '=', $group_id],
     ];
-    $current_id = Notes::where($condition)
-      ->max('note_id');
+    $notes = Notes::where($condition);
 
     $next_id = 1;
 
-    if (!is_null($current_id)) {
-      $next_id = $current_id + 1;
+    if ($notes->exists()) {
+      $next_id = $notes->max('note_id') + 1;
     }
 
     return $next_id;

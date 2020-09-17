@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Notes;
+use App\Models\NoteItems;
 use Auth;
 use Exception;
 
@@ -50,7 +51,7 @@ class NoteManageBaseService
     $note = Notes::where($condition)->first();
     $note_items = $note->getNoteItems();
 
-    return conpact('note', 'note_items');
+    return compact('note', 'note_items');
   }
 
   // ノート編集

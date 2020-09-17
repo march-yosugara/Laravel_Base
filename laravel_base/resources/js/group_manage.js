@@ -30,7 +30,7 @@
         })
         .catch(err => {
           if (err) {
-            alert('Error status : ' & err.response.status)
+            alert('Error status : ' + err.response.status);
           }
         });
     });
@@ -48,7 +48,7 @@
         })
         .catch(err => {
           if (err) {
-            alert('Error status : ' & err.response.status)
+            alert('Error status : ' + err.response.status);
           }
         });
     });

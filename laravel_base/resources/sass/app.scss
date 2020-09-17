@@ -57,8 +57,22 @@ a:active {
   height: 10%;
   width: 100%;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1rem;
   font-size: 3rem;
+}
+
+.subtitle a {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  text-align: left;
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+.subtitle h2 {
+  position: relative;
+  top: 2rem;
 }
 
 .contents {

@@ -35,8 +35,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'march'], function () {
     Route::get('manage', 'NoteManageController@index')->name('note_manage');
     Route::get('edit/{group_id}/{note_id}', 'NoteManageController@edit')->name('note_edit');
     Route::get('read/{group_id}/{note_id}', 'NoteManageController@read')->name('note_read');
-    Route::post('select', 'NoteManageController@groupSelect')->name('note_group_select');
-    Route::post('create', 'NoteManageController@create')->name('note_create');
+    Route::post('select', 'NoteManageController@select')->name('note_group_select');
+    Route::post('create/{group_id}', 'NoteManageController@create')->name('note_create');
     Route::post('update', 'NoteManageController@update')->name('note_update');
     Route::post('delete', 'NoteManageController@delete')->name('note_delete');
   });

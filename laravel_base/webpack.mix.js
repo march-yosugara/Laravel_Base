@@ -19,4 +19,6 @@ mix.js('resources/js/app.js', 'public/js')
   .sass('resources/sass/welcome.scss', 'public/css')
   .sass('resources/sass/home.scss', 'public/css')
   .sass('resources/sass/group_manage.scss', 'public/css')
+  .sass('resources/sass/note_manage.scss', 'public/css')
+  .sass('resources/sass/note_editread.scss', 'public/css')
   .sass('resources/sass/app.scss', 'public/css');

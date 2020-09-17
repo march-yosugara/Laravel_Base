@@ -16,8 +16,8 @@ Home
 </div>
 <div class="card function_card">
   <h3 class="card-title">Notes</h2>
-    <button id="btn_notes" type=“button” class="btn btn-info" onclick="location.href='{{ route('note_manage') }}'">
-      Go Notes</button>
+    <button id="btn_notes" type=“button” class="btn btn-outline-primary"
+      onclick="window.open('{{ route('note_manage') }}','_blank')">Go Notes</button>
 </div>
 @endauth
 @guest

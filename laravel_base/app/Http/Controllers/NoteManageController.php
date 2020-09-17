@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Validator;
 use App\Models\Groups;
+use App\Models\Notes;
 
 class NoteManageController extends Controller
 {
@@ -106,6 +107,10 @@ class NoteManageController extends Controller
     //   ['note_name' => $note_name],
     // ];
 
+    logger($note_columns);
+    logger($group_id);
+    logger($note_id);
+    logger($note_items);
     $ret_note = $this->service->updateNote($note_columns);
     $ret_items = $this->service->updateNoteItems($group_id, $note_id, $note_items);
 
@@ -121,10 +126,10 @@ class NoteManageController extends Controller
       'note_name' => 'required|max:100',
       'note_items.*.note_item_title' => 'max:100',
       'note_items.*.str1' => 'max:100',
-      'note_items.*.int1' => 'integer',
+      'note_items.*.int1' => 'nullable|integer',
       'note_items.*.unit1' => 'max:20',
       'note_items.*.str2' => 'max:100',
-      'note_items.*.int2' => 'integer',
+      'note_items.*.int2' => 'nullable|integer',
       'note_items.*.unit2' => 'max:20',
     ];
   }

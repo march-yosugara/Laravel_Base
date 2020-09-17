@@ -130,3 +130,8 @@ DB_PASSWORD=secret
 [エックスサーバー](https://www.xserver.ne.jp/)  
 [デプロイその１](https://qiita.com/n_oshiumi/items/2a1cc7d147ee1eff3e23)  
 [デプロイその２](https://naoya-ono.com/blog/deploy-laravel-xserver/)  
+
+~~~bash
+# SSH接続
+ssh -l march23y -i C:\Users\yosug\.ssh\march23y.key march23y.xsrv.jp -p 10022
+~~~

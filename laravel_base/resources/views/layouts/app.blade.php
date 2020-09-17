@@ -26,13 +26,14 @@
       <div class="card">
         <h4>Name : {{ $user->name }}</h4>
         <h4>Mail : {{ $user->email }}</h4>
-        <button id="btn_group" type=“button” class="btn btn-primary"
+        <button id="btn_group" type=“button” class="btn btn-outline-primary"
           onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
-        <button id="btn_logout" type="button" class="btn btn-light">Logout</button>
+        <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
       </div>
     </div>
     @endauth
     <div class="subtitle">
+      @yield('root')
       <h2>
         @yield('subtitle')
       </h2>

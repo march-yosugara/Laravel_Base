@@ -40,7 +40,7 @@ const { isBuffer } = require("lodash");
         })
         .catch(err => {
           if (err) {
-            alert('Error status : ' & err.response.status)
+            alert('Error status : ' + err.response.status);
           }
           if (err.response.status === 422) {
             setErrors(err.response.data.errors);
@@ -63,7 +63,7 @@ const { isBuffer } = require("lodash");
         })
         .catch(err => {
           if (err) {
-            alert('Error status : ' & err.response.status)
+            alert('Error status : ' + err.response.status);
           }
         });
     });
@@ -71,7 +71,7 @@ const { isBuffer } = require("lodash");
 
   function setErrors(errors) {
     Object.keys(errors).forEach(name => {
-      const html = '<div class="invalid-feedback error-message">' & errors[name][0] & '</div>';
+      const html = '<div class="invalid-feedback error-message">' + errors[name][0] + '</div>';
       const target = $('[name="' + name + '"]');
       target.addClass('is-invalid');
       target.after(html);

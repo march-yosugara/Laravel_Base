@@ -26,8 +26,9 @@ Sign In
   </form>
 </div>
 <div class="card board">
-  <a class="btn btn-link" href="{{ route('register') }}">Register</a>
-  <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Password</a>
+  <button class="btn btn-outline-secondary" onclick="location.href='{{ route('register') }}'">Register</button>
+  <button class="btn btn-outline-light" onclick="location.href='{{ route('password.request') }}'">Forgot
+    Password</button>
 </div>
 @endsection
 

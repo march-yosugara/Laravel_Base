@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
 
+@section('root')
+<a href='{{ route('group_manage') }}'>Note Manage</a>
+@endsection
+
 @section('subtitle')
 @if ($isCreate == '1')
 Group Create
