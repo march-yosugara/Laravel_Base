@@ -153,3 +153,27 @@ mysql -h 103.141.96.209 -u march23y_larabs -p march23y_laravelbase < laravelbase
 ~~~ bash
 source laravelbase_ddl.sql
 ~~~
+
+### ドメイン
+
+~~~bash
+ln -s ~/march/Laravel_Base/laravel_base/public ~/march-yosugara.com/public_html/public
+~~~
+
+### .htaccess
+
+~~~xml
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+SetEnvIf Request_URI ".*" Ngx_Cache_NoCacheMode=off
+SetEnvIf Request_URI ".*" Ngx_Cache_StaticMode
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(.*)$ public/$1 [QSA,L]
+</IfModule>
+~~~
