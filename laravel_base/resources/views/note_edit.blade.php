@@ -33,16 +33,16 @@ Note Edit
       <div class="row item1">
         <input name="str1" type="text" class="form-control col-5" maxlength="100" placeholder="Item1 String"
           value="{{ $item->str1 }}">
-        <input name="int1" type="number" class="form-control col-5 int" placeholder="Item1 Integer"
-          value="{{ $item->int1 }}">
+        <input name="int_val1" type="number" class="form-control col-5 int" placeholder="Item1 Integer"
+          value="{{ $item->int_val1 }}">
         <input name="unit1" type="text" class="form-control col-2" maxlength="10" placeholder="Item1 Unit"
           value="{{ $item->unit1 }}">
       </div>
       <div class="row item2">
         <input name="str2" type="text" class="form-control col-5" maxlength="100" placeholder="Item2 String"
           value="{{ $item->str2 }}">
-        <input name="int2" type="number" class="form-control col-5 int" placeholder="Item2 Integer"
-          value="{{ $item->int2 }}">
+        <input name="int_val2" type="number" class="form-control col-5 int" placeholder="Item2 Integer"
+          value="{{ $item->int_val2 }}">
         <input name="unit2" type="text" class="form-control col-2" maxlength="10" placeholder="Item2 Unit"
           value="{{ $item->unit2 }}">
       </div>

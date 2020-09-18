@@ -126,10 +126,10 @@ class NoteManageController extends Controller
       'note_name' => 'required|max:100',
       'note_items.*.note_item_title' => 'max:100',
       'note_items.*.str1' => 'max:100',
-      'note_items.*.int1' => 'nullable|integer',
+      'note_items.*.int_val1' => 'nullable|integer',
       'note_items.*.unit1' => 'max:20',
       'note_items.*.str2' => 'max:100',
-      'note_items.*.int2' => 'nullable|integer',
+      'note_items.*.int_val2' => 'nullable|integer',
       'note_items.*.unit2' => 'max:20',
     ];
   }

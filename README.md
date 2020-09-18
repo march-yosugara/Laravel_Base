@@ -131,7 +131,25 @@ DB_PASSWORD=secret
 [デプロイその１](https://qiita.com/n_oshiumi/items/2a1cc7d147ee1eff3e23)  
 [デプロイその２](https://naoya-ono.com/blog/deploy-laravel-xserver/)  
 
+### SSH
+
+C:\Users\yosug\.ssh
+
 ~~~bash
 # SSH接続
 ssh -l march23y -i C:\Users\yosug\.ssh\march23y.key march23y.xsrv.jp -p 10022
+~~~
+
+### MYSQL
+
+~~~bash
+mysql -h mysql10073.xserver.jp -u march23y_larabs -p march23y_laravelbase
+~~~
+
+~~~bash
+mysql -h 103.141.96.209 -u march23y_larabs -p march23y_laravelbase < laravelbase_ddl.sql
+~~~
+
+~~~ bash
+source laravelbase_ddl.sql
 ~~~

@@ -20,10 +20,10 @@ class NoteItems extends Model
     'note_item_id',
     'note_item_title',
     'str1',
-    'int1',
+    'int_val1',
     'unit1',
     'str2',
-    'int2',
+    'int_val2',
     'unit2',
     'memo',
   ];

@@ -26,12 +26,12 @@ Note Read
   <div class="card-body">
     <div class="row item1">
       <p class="col-5">{{ $item->str1 }}</p>
-      <p class="col-5 int">{{ $item->int1 }}</p>
+      <p class="col-5 int">{{ $item->int_val1 }}</p>
       <p class="col-2">{{ $item->unit1 }}</p>
     </div>
     <div class="row item2">
       <p class="col-5">{{ $item->str2 }}</p>
-      <p class="col-5 int">{{ $item->int2 }}</p>
+      <p class="col-5 int">{{ $item->int_val2 }}</p>
       <p class="col-2">{{ $item->unit2 }}</p>
     </div>
     <div class="row item_memo">
