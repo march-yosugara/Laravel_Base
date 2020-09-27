@@ -1,0 +1,58 @@
+// Authコンテンツ
+.contents {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 70%;
+  height: 80%;
+  overflow: auto;
+}
+
+.subtitle {
+  width: 70%;
+}
+
+.right-menu {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 30%;
+  height: 80%;
+  overflow: auto;
+}
+
+.user {
+  width: 90%;
+  margin: 0.5rem auto;
+}
+
+.user .card {
+  padding: 0.5rem;
+}
+
+.user button {
+  width: 100%;
+  font-weight: bold;
+  padding: 0.2rem 0;
+  margin: 0.4rem auto 0;
+  font-size: 0.5rem;
+  line-height: 0.6rem;
+}
+
+.user p {
+  font-size: 0.5rem;
+  line-height: 0.6rem;
+  margin: 0 0 0.3rem;
+}
+
+.board {
+  margin: 1rem auto;
+  padding: 0 1rem;
+  width: 60%;
+}
+
+@media screen and (max-width:1024px) {
+  .board {
+    width: 80%;
+  }
+}

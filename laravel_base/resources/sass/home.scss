@@ -3,19 +3,29 @@
 }
 
 .main_card {
-  width: 50%;
-  margin: 1rem auto;
-  padding: 1rem 1.5rem;
+  width: 60%;
+  margin: 0.5rem auto 0;
+  padding: 1rem;
 }
 
 .function_card {
-  width: 50%;
-  margin: 1rem auto;
-  padding: 1rem 1.5rem;
+  width: 60%;
+  margin: 0.5rem auto 0;
+  padding: 0.5rem;
+}
+
+@media screen and (max-width:1024px) {
+  .main_card {
+    width: 90%;
+  }
+
+  .function_card {
+    width: 90%;
+  }
 }
 
 .function_card button {
-  width: 80%;
+  width: 100%;
   padding: 0.5rem 1rem;
   margin: 0.5rem auto;
   font-size: 2rem;

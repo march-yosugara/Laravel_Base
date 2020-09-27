@@ -21,17 +21,19 @@
         <h1>LaravelBase</h1>
       </a>
     </div>
-    @auth
-    <div class="user">
-      <div class="card">
-        <h4>Name : {{ $user->name }}</h4>
-        <h4>Mail : {{ $user->email }}</h4>
-        <button id="btn_group" type=“button” class="btn btn-outline-primary"
-          onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
-        <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
+    <div class="right-menu">
+      @auth
+      <div class="user">
+        <div class="card">
+          <p>Name : {{ $user->name }}</p>
+          <p>Mail : {{ $user->email }}</p>
+          <button id="btn_group" type=“button” class="btn btn-outline-primary"
+            onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
+          <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
+        </div>
       </div>
+      @endauth
     </div>
-    @endauth
     <div class="subtitle">
       @yield('root')
       <h2>

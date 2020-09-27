@@ -11,7 +11,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
 /* fontawesome */
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(https://weloveiconfonts.com/api/?family=fontawesome);
 [class*="fontawesome-"]:before {
   font-family: 'Myrica M', 'MyricaM M', 'Consolas';
 }
@@ -25,22 +25,22 @@ body {
   font: 400 87.5%/1.5rem 'Myrica M', 'MyricaM M', 'Consolas';
 }
 
-.wrapper {
-  min-width: 980px;
-}
-
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
-  height: 3.5rem;
+  height: 8%;
   text-decoration: none;
   color: #8c8c8c;
   background-color: #e9e9e9;
   font-weight: bold;
-  font-size: 2.5rem;
-  padding: 0.3rem 2rem;
-  margin-bottom: 2rem;
+  padding: 0.5rem 2rem;
+}
+
+.header h1 {
+  line-height: 2rem;
+  font-size: 2rem;
+  margin: 0;
 }
 
 a,
@@ -53,12 +53,17 @@ a:active {
 
 .subtitle {
   position: absolute;
-  top: 5%;
-  height: 10%;
-  width: 100%;
+  top: 8%;
+  height: 7%;
   text-align: center;
-  padding: 1rem;
-  font-size: 3rem;
+  padding: 0.4rem 0;
+}
+
+.subtitle h2 {
+  line-height: 2rem;
+  font-size: 2rem;
+  margin: 0;
+  width: 70%;
 }
 
 .subtitle a {
@@ -70,80 +75,15 @@ a:active {
   font-size: 1.2rem;
 }
 
-.subtitle h2 {
-  position: relative;
-  top: 2rem;
-}
-
-.contents {
-  position: absolute;
-  padding: 0 5%;
-  top: 15%;
-  width: 100%;
-  height: 80%;
-  overflow: auto;
-}
-
-.user {
-  position: fixed;
-  z-index: 9;
-  top: 2.5%;
-  right: 5%;
-  width: 20%;
-}
-
-.user .card {
-  padding: 0.5rem;
-}
-
-.user button {
-  width: 95%;
-  font-weight: bold;
-  padding: 0 0.3rem;
-  margin: 0.3rem auto;
-  font-size: 0.9rem;
-}
-
-.user h4 {
-  font-size: 0.9rem;
-  margin-left: 0.5rem;
-}
-
 .footer {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 2.8rem;
+  height: 5%;
   color: #c0c0c0;
   background-color: #e9e9e9;
   font-weight: bold;
   font-size: 1.5rem;
-  padding: 0.5rem 2rem;
+  padding: 0.4rem 2rem;
   text-align: right;
-}
-
-.button-panel {
-  margin: 2rem 0 0;
-  width: 100%;
-}
-
-.button-panel .button {
-  background: #f16272;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  height: 50px;
-  font-size: 1.5rem;
-  letter-spacing: 0.05rem;
-  text-align: center;
-  text-transform: uppercase;
-  transition: background 0.3s ease-in-out;
-  width: 100%;
-  margin-bottom: 0.75rem;
-}
-
-.board {
-  margin: 1rem auto;
-  padding: 0 1rem;
-  width: 40%;
 }
