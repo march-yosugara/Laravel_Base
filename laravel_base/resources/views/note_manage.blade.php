@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('styles')
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 <link rel="stylesheet" href="{{ asset('css/note_manage.css') }}">
 @endsection
 
 @section('root')
-<a href='{{ route('note_manage') }}'>Note Manage</a>
+<a href="{{ route('note_manage') }}" class="list-group-item list-group-item-action">Note Manage</a>
 @endsection
 
 @section('subtitle')
@@ -17,23 +18,21 @@ Note Manage
 @if(count($groups) > 0)
 <form>
   @csrf
-  <div class="card group" id="group">
-    <div class="card-body">
-      <div class="row">
-        <select name="group_id" id="group_id" class="form-control">
-          <option value=""></option>
-          @foreach($groups as $group)
-          <option value="{{ $group->group_id }}">{{ $group->group_name }}</option>
-          @endforeach
-        </select>
-        <button id="btn_select" type=“button” class="btn btn-outline-light">　</button>
-      </div>
+  <div class="card board" id="group">
+    <div class="row">
+      <select name="group_id" id="group_id" class="form-control d-inline">
+        <option value=""></option>
+        @foreach($groups as $group)
+        <option value="{{ $group->group_id }}">{{ $group->group_name }}</option>
+        @endforeach
+      </select>
+      <button id="btn_select" type="button" class=" btn btn-outline-light">　</button>
     </div>
   </div>
-  <div class="card add_note">
+  <div class="card board">
     <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100"
       placeholder="Note name">
-    <button id="btn_create" type=“button” class="btn btn-outline-secondary">Create Note</button>
+    <button id="btn_create" type="button" class=" btn btn-outline-secondary">Create Note</button>
   </div>
 </form>
 @endif

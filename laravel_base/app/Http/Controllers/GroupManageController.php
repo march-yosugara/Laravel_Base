@@ -48,7 +48,7 @@ class GroupManageController extends Controller
   // グループ作成
   public function create(Request $req)
   {
-    $validator = Validator::make($req->all(), $this->rules());
+    $validator = Validator::make($req->all(), $this->rules(true));
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors()], 422);
     }
@@ -114,7 +114,7 @@ class GroupManageController extends Controller
       $form = $req->toArray();
       $group_id = $form['group_id'];
 
-      $validator = Validator::make($req->all(), $this->rules());
+      $validator = Validator::make($req->all(), $this->rules(false));
       $validator->after(function ($validator) use ($group_id) {
         $group = Groups::getGroup($group_id);
         if (!isset($group)) {
@@ -157,12 +157,14 @@ class GroupManageController extends Controller
     return response()->json(compact('ret', 'message'));
   }
 
-  private function rules()
+  private function rules($isCreate)
   {
+    $pass_required = $isCreate ? 'required' : 'nullable';
+
     return [
       'group_name' => 'required|max:100',
-      'group_pass' => 'required|confirmed',
-      'group_pass_confirmation' => 'required',
+      'group_pass' => $pass_required . '|confirmed',
+      'group_pass_confirmation' => 'required_with:group_pass',
     ];
   }
 }

@@ -1,0 +1,27 @@
+// Guestコンテンツ
+.contents {
+  width: 100%;
+}
+
+.subtitle h2 {
+  width: 100%;
+}
+
+.button-panel {
+  margin: 1rem 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}

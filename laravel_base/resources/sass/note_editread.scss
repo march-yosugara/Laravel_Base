@@ -1,41 +1,10 @@
-.note_card {
-  width: 50%;
-  margin: 1rem auto;
-  padding: 1rem 1.5rem;
-}
-
-.note_item {
-  width: 100%;
-  margin: 1rem auto;
-}
-
-.note_item .card-body {
-  padding: 0 0.5rem 0.5rem;
-}
-
-.note_item .row {
-  width: 100%;
-  margin: 0.5rem auto 0;
-}
-
-.note_item .row {
-  width: 100%;
-  margin: 0.5rem auto 0;
-}
-
 .card-body p {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.card-body p,
 .note_title p {
   font-weight: bold;
   font-size: 1.5rem;
-}
-
-.note_card p {
-  font-weight: bold;
-  font-size: 1.6rem;
 }
 
 .card-body .int
@@ -43,25 +12,25 @@
   text-align: right;
 }
 
-.card_button {
-  width: 50%;
-  margin: 2rem auto;
+.row p {
+  padding: 0;
 }
 
-.card_button button {
-  width: 95%;
-  font-weight: bold;
-  padding: 0.2rem 1rem;
-  margin: 0.5rem auto;
+.memo {
+  white-space: pre-wrap;
 }
 
-.card p {
-  margin: 0;
-  padding: 0 1rem;
+.note_item_title  {
+  margin-top: 0;
 }
 
-.form-control {
-  padding: 0rem 1rem;
-  font-size: 1.4rem;
-  line-height: 1.4rem;
+.btn_remove {
+  max-width: 2.5rem;
+  margin-right: 0;
+}
+
+@media screen and (max-width:1024px) {
+  .note_title p {
+    font-size: 1.2rem;
+  }
 }

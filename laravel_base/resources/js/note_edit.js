@@ -60,6 +60,8 @@
 
     $('#btn_add').on('click', function (e) {
       e.preventDefault();
+      $('.btn_remove').off('click');
+
       const item = {
         'note_item_id': 0,
         'note_item_title': '',
@@ -73,61 +75,74 @@
       };
 
       createItem(item);
+      setEventRemoveItem();
     });
+
+    $('#btn_delete').on('click', function (e) {
+      e.preventDefault();
+      var datas = {};
+      datas['group_id'] = $('input[name="group_id"]').val();
+      datas['note_id'] = $('input[name="note_id"]').val();
+
+      axios.post(urls.url_delete, datas)
+        .then(res => {
+          alert(res.data.message);
+          if (res.data.ret === true) {
+            window.close();
+          }
+        })
+        .catch(err => {
+          if (err) {
+            alert('Error status : ' + err.response.status);
+          }
+        });
+    });
+
+    setEventRemoveItem();
   });
 
-  $('#btn_delete').on('click', function (e) {
-    e.preventDefault();
-    var datas = {};
-    datas['group_id'] = $('input[name="group_id"]').val();
-    datas['note_id'] = $('input[name="note_id"]').val();
-
-    axios.post(urls.url_delete, datas)
-      .then(res => {
-        alert(res.data.message);
-        if (res.data.ret === true) {
-          window.close();
-        }
-      })
-      .catch(err => {
-        if (err) {
-          alert('Error status : ' + err.response.status);
-        }
-      });
-  });
   function createItem(item) {
     const div = [
-      '<div class="card note_item" id="' + item.note_item_id + '">',
-      '  <div class="card-header note_item_title">',
-      '    <input name="note_item_title" type="text" class="form-control"',
+      '<div class="card card_with_title note_item" id="' + item.note_item_id + '">',
+      '  <div class="card-header note_item_title row">',
+      '    <input name="note_item_title" type="text" class="form-control col-10"',
       '      maxlength="100" placeholder="Note item title" value="' + item.note_item_title + '">',
+      '    <button type="button" class="btn btn-outline-danger rounded-circle p-0 btn_remove col-2">×</button>',
       '  </div>',
       '  <div class="card-body">',
       '    <div class="row item1">',
       '      <input name="str1" type="text" class="form-control col-5"',
-      '        maxlength="100" placeholder="Item1 string" value="' + item.str1 + '">',
+      '        maxlength="100" placeholder="string1" value="' + item.str1 + '">',
       '      <input name="int_val1" type="number" class="form-control col-5 int"',
-      '        placeholder="Item1 integer" value="' + item.int_val1 + '">',
+      '        placeholder="integer1" value="' + item.int_val1 + '">',
       '      <input name="unit1" type="text" class="form-control col-2"',
-      '        maxlength="10" placeholder="Item1 unit" value="' + item.unit1 + '">',
+      '        maxlength="10" placeholder="unit1" value="' + item.unit1 + '">',
       '    </div>',
       '    <div class="row item2">',
       '      <input name="str2" type="text" class="form-control col-5"',
-      '        maxlength="100" placeholder="Item2 string" value="' + item.str2 + '">',
+      '        maxlength="100" placeholder="string2" value="' + item.str2 + '">',
       '      <input name="int_val2" type="number" class="form-control col-5 int"',
-      '        placeholder="Item2 integer" value="' + item.int_val2 + '">',
+      '        placeholder="integer2" value="' + item.int_val2 + '">',
       '      <input name="unit2" type="text" class="form-control col-2"',
-      '        maxlength="10" placeholder="Item2 unit" value="' + item.unit2 + '">',
+      '        maxlength="10" placeholder="unit2" value="' + item.unit2 + '">',
       '    </div>',
       '    <div class="row item_memo">',
       '      <textarea name="memo" type="text" class="form-control col-12" rows="2"',
-      '        placeholder="Note item memo">' + item.memo + '</textarea>',
+      '        placeholder="memo">' + item.memo + '</textarea>',
       '    </div>',
       '  </div>',
       '</div>',
     ];
 
     $('#add_point').before(div.join(''));
+  }
+
+  function setEventRemoveItem() {
+    $('.btn_remove').on('click', function (e) {
+      e.preventDefault();
+
+      $(this).parent().parent().remove();
+    });
   }
 
   function setErrors(errors) {

@@ -1,70 +1,10 @@
-.note_card {
-  width: 50%;
-  margin: 1rem auto;
-}
-
-.note_item .card-body {
-  padding: 1rem;
-}
-
-.note_card .row {
-  width: 100%;
-  margin: 0.5rem auto 0;
-}
-
-.note_card .note_id {
-  margin-left: 1rem;
-}
-
-.note_name {
-  margin: 0;
-}
-
-.note_card button {
-  width: 45%;
-  padding: 0.2rem 1rem;
-  margin: 0 auto;
-}
-
-.group,
-.add_note {
-  width: 50%;
-  margin: 2rem auto;
-}
-
-.group .card-body {
-  padding: 1rem 0;
-}
-
-.group .row {
-  width: 95%;
-  margin: 0 auto;
-}
-
-.group button {
-  width: 10%;
-}
-
-.group select {
-  width: 90%;
-  font-weight: bold;
-  margin: 0 auto;
-}
-
-.group option {
+.board select,
+.board option {
   font-weight: bold;
 }
 
-.add_note button {
-  width: 95%;
-  font-weight: bold;
-  padding: 0.2rem 1rem;
-  margin: 0.5rem auto;
-}
-
-.add_note input {
-  width: 95%;
-  margin: 0.5rem auto 0;
+#group_id {
+  width: 80%;
 }
 
 #btn_select {
@@ -73,4 +13,10 @@
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.5;
+  width: 15%;
+  margin: 0 0 0 auto;
+}
+
+#note_name {
+  margin: 0.5rem auto 0;
 }

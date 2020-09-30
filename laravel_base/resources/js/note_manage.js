@@ -62,6 +62,7 @@
     axios.post(urls.url_select, datas)
       .then(res => {
         $('div.note_card').remove();
+        $('#note_name').val('');
 
         res.data.notes.forEach(function (item) {
           var urlEdit = urls.url_edit;
@@ -69,16 +70,16 @@
           urlEdit = urlEdit.replace('group_id', item.group_id).replace('note_id', item.note_id);
           urlRead = urlRead.replace('group_id', item.group_id).replace('note_id', item.note_id);
           const div = [
-            '<div class="card note_card">',
+            '<div class="card card_with_title note_card">',
             '  <div class="card-header">',
-            '    <h3 class="note_name">' + item.note_name + '</h3>',
+            '    <p class="card-title note_name">' + item.note_name + '</p>',
             '  </div>',
             '  <div class="card-body">',
-            '    <h5 class="card-subtitle mb-2 text-muted note_id">ID : ' + item.note_id + '</h5>',
+            '    <p class="card-subtitle text-muted note_id">ID : ' + item.note_id + '</p>',
             '    <div class="row">',
-            '      <button type=“button” class="btn btn-outline-primary col-5"',
+            '      <button type="button" class="btn btn-outline-primary col-5"',
             '        onclick="window.open(\'' + urlEdit + '\',\'_blank\')">Edit</button>',
-            '      <button type=“button” class="btn btn-outline-secondary col-5"',
+            '      <button type="button" class="btn btn-outline-secondary col-5"',
             '        onclick="window.open(\'' + urlRead + '\',\'_blank\')">Read</button>',
             '    </div >',
             '  </div >',
