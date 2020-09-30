@@ -13,7 +13,7 @@
 |7|ノートアイテムBody行間|Low|2020/09/23|ノート内容表示画面のアイテムのBodyの行間を整える|未着手|
 |8|グループ管理画面ルート|Low|2020/09/23|グループ管理画面のルートを削除|未着手|
 |9|グループ編集分化|Medium|2020/09/23|グループ編集で名前・パス編集分化|未着手|
-|10|フォント|Low|2020/09/23|フォント優先3位以降にWebフォントを設定|未着手|
+|10|Title|Priority|Date|Summary|State|
 |11|Title|Priority|Date|Summary|State|
 |12|Title|Priority|Date|Summary|State|
 |13|Title|Priority|Date|Summary|State|
@@ -74,10 +74,7 @@ NULLで行間最小になるのはそのまま。
 名前のみ入力で名前のみ更新、パスワードまで入力すると両方更新する。  
 (パスワードのバリデーションルールを変更する)  
 
-### 10. フォント
-
-現状、ミリカを優先しているが、次点の優先にWebフォントを追加する。  
-(Talking, Haruhi Gakuen, Shimanami)  
+### 10. 
 
 ### 11. 
 
