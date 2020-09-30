@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('styles')
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
 
 @section('root')
-<a href='{{ route('group_manage') }}'>Note Manage</a>
+<a href="{{ route('group_manage') }}" class="list-group-item list-group-item-action">Group Manage</a>
 @endsection
 
 @section('subtitle')
@@ -19,32 +20,18 @@ Group Update
 @section('contents')
 @auth
 <div class="card board">
-  <div class="card-body">
-    <form>
-      @csrf
-      <input id="group_id" type="hidden" name="group_id" value="{{ $group->group_id }}">
-      <div class="form-item">
-        <label for="group_name"></label>
-        <input id="group_name" type="text" class="form-control" name="group_name" value="{{ $group->group_name }}"
-          required maxlength="100" autofocus placeholder="Group Name">
-      </div>
-      <div class="form-item">
-        <label for="group_pass"></label>
-        <input id="group_pass" type="password" class="form-control" name="group_pass" required
-          placeholder="Group Password">
-      </div>
-      <div class="form-item">
-        <label for="group_pass_confirmation"></label>
-        <input id="group_pass_confirmation" type="password" class="form-control" name="group_pass_confirmation" required
-          placeholder="Password Confirm">
-      </div>
-      <div class="button-panel">
-        <button id="btn_commit" type="button" class="button">Commit</button>
-        @if($isCreate != '1')
-        <button id="btn_delete" type=“button” class="button">Delete</button>
-        @endif
-      </div>
-    </form>
+  @csrf
+  <input id="group_id" type="hidden" name="group_id" value="{{ $group->group_id }}">
+  <input id="group_name" type="text" class="form-control" name="group_name" value="{{ $group->group_name }}" required
+    maxlength="100" autofocus placeholder="Group Name">
+  <input id="group_pass" type="password" class="form-control" name="group_pass" required placeholder="Group Password">
+  <input id="group_pass_confirmation" type="password" class="form-control" name="group_pass_confirmation" required
+    placeholder="Password Confirm">
+  <div class="row">
+    <button id="btn_commit" type="button" class="btn btn-outline-success col-5">Commit</button>
+    @if($isCreate != '1')
+    <button id="btn_delete" type=“button” class="btn btn-outline-danger col-5">Delete</button>
+    @endif
   </div>
 </div>
 @endauth

@@ -11,6 +11,7 @@
   @endauth
   <title>LaravelBase</title>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
   @yield('styles')
 </head>
 
@@ -21,19 +22,23 @@
         <h1>LaravelBase</h1>
       </a>
     </div>
-    @auth
-    <div class="user">
-      <div class="card">
-        <h4>Name : {{ $user->name }}</h4>
-        <h4>Mail : {{ $user->email }}</h4>
-        <button id="btn_group" type=“button” class="btn btn-outline-primary"
-          onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
-        <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
+    <div class="right-menu">
+      @auth
+      <div class="user">
+        <div class="card board">
+          <p>Name : {{ $user->name }}</p>
+          <p>Mail : {{ $user->email }}</p>
+          <button id="btn_group" type=“button” class="btn btn-outline-primary"
+            onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
+          <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
+        </div>
       </div>
+      @endauth
     </div>
-    @endauth
     <div class="subtitle">
-      @yield('root')
+      <div class="root list-group list-group-flush">
+        @yield('root')
+      </div>
       <h2>
         @yield('subtitle')
       </h2>
@@ -42,7 +47,7 @@
       @yield('contents')
     </div>
     <div class="footer">
-      &copy; 2020 March Yosugara
+      <p>&copy; 2020 March Yosugara</p>
     </div>
   </div>
   <script src="{{ asset('js/app.js') }}"></script>

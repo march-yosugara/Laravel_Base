@@ -1,9 +1,5 @@
-form {
-  padding: 0 1.5rem;
-}
-
 .form-item {
-  margin-bottom: 0.75rem;
+  margin-top: 1rem;
   width: 100%;
 }
 
@@ -45,10 +41,98 @@ form {
 }
 
 .board {
-  padding: 0 1rem 1rem;
+  margin: 1rem auto 0;
+  padding: 0 2rem 0.5rem;
+  width: 60%;
 }
 
-.board button {
-  width: 90%;
+.card_with_title {
   margin: 1rem auto 0;
+  padding: 0;
+  width: 60%;
+}
+
+.card_with_title .card-body {
+  padding: 0 2rem 0.5rem;
+}
+
+.board > p,
+.board > input,
+.board > button,
+.card_with_title > button {
+  width: 100%;
+  margin: 0.5rem auto 0;
+}
+
+.card-header {
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  line-height: 1rem;
+  font-weight: bold;
+}
+
+.card-title {
+  margin: 0.2rem auto 0.2rem 0;
+}
+
+.card-subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+  line-height: 1rem;
+}
+
+.row {
+  width: 100%;
+  margin: 0.5rem auto 0;
+}
+
+.row button {
+  margin: 0 auto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+@media screen and (max-width:1024px) {
+  .board {
+    width: 90%;
+    padding: 0 1rem 0.5rem;
+  }
+
+  .card_with_title {
+    width: 90%;
+  }
+
+  .card-header {
+    padding: 0.3rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+  }
+
+  .card_with_title .card-body {
+    padding: 0 1rem 0.5rem;
+  }
+
+  .footer p {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
+
+  .btn,
+  .form-control {
+    padding: 0rem 0.4rem;
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+    height: calc(1.5rem + 2px);
+  }
 }

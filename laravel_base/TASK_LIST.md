@@ -2,23 +2,23 @@
 
 ## 一覧
 
-|No.|Title|Priority|Date|Summary|State|
-|:--:|:---|:--:|:--:|:---|:--:|
-|1|スマホスタイル|High|2020/09/23|スマホサイズのスクリーン向けスタイル実装|未着手|
-|2|Note内容更新メッセージ|Low|2020/09/23|ノート内容更新時のメッセージ「undifine」を修正|未着手|
-|3|ノートタイトル更新|Low|2020/09/23|ノート内容更新でノートタイトルが更新されない|未着手|
-|4|ノートメモ改行|Medium|2020/09/23|ノート内容画面でメモの改行が入らない|未着手|
-|5|ノートアイテムID|Medium|2020/09/23|ノートアイテムIDに「0」が付く|未着手|
-|6|ノート内容画面切り替え|Low|2020/09/23|ノート内容画面の切り替えリンクの文字列が両方「Read」|未着手|
-|7|ノートアイテムBody行間|Low|2020/09/23|ノート内容表示画面のアイテムのBodyの行間を整える|未着手|
-|8|グループ管理画面ルート|Low|2020/09/23|グループ管理画面のルートを削除|未着手|
-|9|グループ編集分化|Medium|2020/09/23|グループ編集で名前・パス編集分化|未着手|
-|10|Title|Priority|Date|Summary|State|
-|11|Title|Priority|Date|Summary|State|
-|12|Title|Priority|Date|Summary|State|
-|13|Title|Priority|Date|Summary|State|
-|14|Title|Priority|Date|Summary|State|
-|15|Title|Priority|Date|Summary|State|
+|No.|Title|Priority|Date|Summary|State|Date|
+|:--:|:---|:--:|:--:|:---|:--:|:--:|
+|1|スマホスタイル|High|2020/09/23|スマホサイズのスクリーン向けスタイル実装|完了|2020/09/30|
+|2|Note内容更新メッセージ|Low|2020/09/23|ノート内容更新時のメッセージ「undifine」を修正|未着手|2020/00/00|
+|3|ノートタイトル更新|Low|2020/09/23|ノート内容更新でノートタイトルが更新されない|未着手|2020/00/00|
+|4|ノートメモ改行|Medium|2020/09/23|ノート内容画面でメモの改行が入らない|未着手|2020/00/00|
+|5|ノートアイテムID|Medium|2020/09/23|ノートアイテムIDに「0」が付く|未着手|2020/00/00|
+|6|ノート内容画面切り替え|Low|2020/09/23|ノート内容画面の切り替えリンクの文字列が両方「Read」|未着手|2020/00/00|
+|7|ノートアイテムBody行間|Low|2020/09/23|ノート内容表示画面のアイテムのBodyの行間を整える|未着手|2020/00/00|
+|8|グループ管理画面ルート|Low|2020/09/23|グループ管理画面のルートを削除|未着手|2020/00/00|
+|9|グループ編集分化|Medium|2020/09/23|グループ編集で名前・パス編集分化|未着手|2020/00/00|
+|10|Title|Priority|Date|Summary|State|Date|
+|11|Title|Priority|Date|Summary|State|Date|
+|12|Title|Priority|Date|Summary|State|Date|
+|13|Title|Priority|Date|Summary|State|Date|
+|14|Title|Priority|Date|Summary|State|Date|
+|15|Title|Priority|Date|Summary|State|Date|
 
 ### 1. スマホスタイル
 
@@ -28,6 +28,34 @@
 - contentsエリア  
   中央50%→左寄せ70%  
   右30%はuserエリア＋その他用(広告やinfoエリア)  
+
+- cardスタイルの共通化  
+  cardをベースにデザインしているため、cardのスタイルはwelcome.cssで共通設。  
+  タイトルあり・なし2パターンに絞る。  
+  併せてマージン・パディングの取り方も共通化。  
+
+- スマホスタイル  
+  1024px以下に対して、一部スタイルを調整。  
+
+#### 対応箇所
+
+- Guestゾーン  
+  現行のまま全てセンタリング  
+  →guest.cssを適用  
+
+- Authゾーン  
+  contents内、左70%/右30%  
+  余白1rem  
+  左にメインコンテンツ、右にユーザ情報・その他(広告？)  
+  →Auth.cssを適用
+
+- 共通    
+    - カードのwidth  
+      PC幅では60-70%、スマホ幅では80-90%  
+      (現:50%)  
+    - その他  
+      諸々含め  
+      →welcome.cssを適用(app.blade.phpで指定)  
 
 ### 2. Note内容更新メッセージ
 
