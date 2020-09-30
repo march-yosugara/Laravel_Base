@@ -62,6 +62,7 @@
     axios.post(urls.url_select, datas)
       .then(res => {
         $('div.note_card').remove();
+        $('#note_name').val('');
 
         res.data.notes.forEach(function (item) {
           var urlEdit = urls.url_edit;
@@ -69,7 +70,7 @@
           urlEdit = urlEdit.replace('group_id', item.group_id).replace('note_id', item.note_id);
           urlRead = urlRead.replace('group_id', item.group_id).replace('note_id', item.note_id);
           const div = [
-            '<div class="card card_with_title">',
+            '<div class="card card_with_title note_card">',
             '  <div class="card-header">',
             '    <p class="card-title note_name">' + item.note_name + '</p>',
             '  </div>',
