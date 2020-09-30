@@ -30,7 +30,7 @@ Note Edit
     <div class="card-header note_item_title row">
       <input name="note_item_title" type="text" class="form-control col-10" maxlength="100"
         placeholder="Note Item Title" value="{{ $item->note_item_title }}">
-      <button type="button" class="btn btn-outline-danger btn_remove col-2">Remove</button>
+      <button type="button" class="btn btn-outline-danger rounded-circle p-0 btn_remove col-2">×</button>
     </div>
     <div class="card-body">
       <div class="row item1">

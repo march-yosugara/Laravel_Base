@@ -24,6 +24,11 @@
   margin-top: 0;
 }
 
+.btn_remove {
+  max-width: 2.5rem;
+  margin-right: 0;
+}
+
 @media screen and (max-width:1024px) {
   .note_title p {
     font-size: 1.2rem;
