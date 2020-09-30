@@ -23,9 +23,9 @@ Group Manage
   <div class="card-body">
     <p class="card-subtitle text-muted group_id">ID : {{ $group->group_id }}</p>
     <div class="row">
-      <button type=“button” class="btn btn-outline-primary col-5"
+      <button type="button" class=" btn btn-outline-primary col-5"
         onclick="location.href='{{ route('group_edit', ['group_id' => $group->group_id]) }}'">Edit</button>
-      <button type=“button” class="btn btn-outline-danger btn_remove col-5"
+      <button type="button" class=" btn btn-outline-danger btn_remove col-5"
         name='{{ $group->group_id }}'>Remove</button>
     </div>
   </div>
@@ -41,11 +41,11 @@ Group Manage
   </select>
   <input id="add_group_pass" type="password" class="form-control" name="add_group_pass" required
     placeholder="Group Password">
-  <button id="btn_add" type=“button” class="btn btn-outline-info">Add</button>
+  <button id="btn_add" type="button" class=" btn btn-outline-info">Add</button>
 </div>
 @endif
 <div class="card board">
-  <button id="btn_create" type=“button” class="btn btn-outline-secondary"
+  <button id="btn_create" type="button" class=" btn btn-outline-secondary"
     onclick="location.href='{{ route('group_edit', ['group_id' => '0']) }}'">＋</button>
 </div>
 @endauth

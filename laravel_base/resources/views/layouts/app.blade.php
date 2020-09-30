@@ -28,7 +28,7 @@
         <div class="card board">
           <p>Name : {{ $user->name }}</p>
           <p>Mail : {{ $user->email }}</p>
-          <button id="btn_group" type=“button” class="btn btn-outline-primary"
+          <button id="btn_group" type="button" class="btn btn-outline-primary"
             onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
           <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
         </div>

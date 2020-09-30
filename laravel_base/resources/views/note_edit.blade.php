@@ -27,9 +27,10 @@ Note Edit
   @if(count($note_items) > 0)
   @foreach($note_items as $item)
   <div class="card card_with_title note_item" id="{{ $item->note_item_id }}">
-    <div class="card-header note_item_title">
-      <input name="note_item_title" type="text" class="form-control" maxlength="100" placeholder="Note Item Title"
-        value="{{ $item->note_item_title }}">
+    <div class="card-header note_item_title row">
+      <input name="note_item_title" type="text" class="form-control col-10" maxlength="100"
+        placeholder="Note Item Title" value="{{ $item->note_item_title }}">
+      <button type="button" class="btn btn-outline-danger btn_remove col-2">Remove</button>
     </div>
     <div class="card-body">
       <div class="row item1">
@@ -57,13 +58,13 @@ Note Edit
   @endforeach
   @endif
   <div class="card board" id="add_point">
-    <button id="btn_add" type=“button” class="btn btn-outline-secondary">＋</button>
+    <button id="btn_add" type="button" class="btn btn-outline-secondary">＋</button>
   </div>
   <div class="card board">
-    <button id="btn_update" type=“button” class="btn btn-outline-success">Note update</button>
+    <button id="btn_update" type="button" class="btn btn-outline-success">Note update</button>
   </div>
   <div class="card board">
-    <button id="btn_delete" type=“button” class="btn btn-outline-danger">Note delete</button>
+    <button id="btn_delete" type="button" class="btn btn-outline-danger">Note delete</button>
   </div>
 </form>
 @endauth
