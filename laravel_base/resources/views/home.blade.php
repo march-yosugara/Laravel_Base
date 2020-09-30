@@ -18,7 +18,7 @@ Home
 </div>
 <div class="card board">
   <h3 class="card-title">Notes</h2>
-    <button id="btn_notes" type=“button” class="btn btn-outline-primary"
+    <button id="btn_notes" type="button" class=" btn btn-outline-primary"
       onclick="window.open('{{ route('note_manage') }}','_blank')">Go Notes</button>
 </div>
 @endauth

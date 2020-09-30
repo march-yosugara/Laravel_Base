@@ -26,13 +26,13 @@ Note Manage
         <option value="{{ $group->group_id }}">{{ $group->group_name }}</option>
         @endforeach
       </select>
-      <button id="btn_select" type=“button” class="btn btn-outline-light">　</button>
+      <button id="btn_select" type="button" class=" btn btn-outline-light">　</button>
     </div>
   </div>
   <div class="card board">
     <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100"
       placeholder="Note name">
-    <button id="btn_create" type=“button” class="btn btn-outline-secondary">Create Note</button>
+    <button id="btn_create" type="button" class=" btn btn-outline-secondary">Create Note</button>
   </div>
 </form>
 @endif

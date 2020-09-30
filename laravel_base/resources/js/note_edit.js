@@ -60,6 +60,8 @@
 
     $('#btn_add').on('click', function (e) {
       e.preventDefault();
+      $('.btn_remove').off('click');
+
       const item = {
         'note_item_id': 0,
         'note_item_title': '',
@@ -73,34 +75,39 @@
       };
 
       createItem(item);
+      setEventRemoveItem();
     });
+
+    $('#btn_delete').on('click', function (e) {
+      e.preventDefault();
+      var datas = {};
+      datas['group_id'] = $('input[name="group_id"]').val();
+      datas['note_id'] = $('input[name="note_id"]').val();
+
+      axios.post(urls.url_delete, datas)
+        .then(res => {
+          alert(res.data.message);
+          if (res.data.ret === true) {
+            window.close();
+          }
+        })
+        .catch(err => {
+          if (err) {
+            alert('Error status : ' + err.response.status);
+          }
+        });
+    });
+
+    setEventRemoveItem();
   });
 
-  $('#btn_delete').on('click', function (e) {
-    e.preventDefault();
-    var datas = {};
-    datas['group_id'] = $('input[name="group_id"]').val();
-    datas['note_id'] = $('input[name="note_id"]').val();
-
-    axios.post(urls.url_delete, datas)
-      .then(res => {
-        alert(res.data.message);
-        if (res.data.ret === true) {
-          window.close();
-        }
-      })
-      .catch(err => {
-        if (err) {
-          alert('Error status : ' + err.response.status);
-        }
-      });
-  });
   function createItem(item) {
     const div = [
       '<div class="card card_with_title note_item" id="' + item.note_item_id + '">',
-      '  <div class="card-header note_item_title">',
-      '    <input name="note_item_title" type="text" class="form-control"',
+      '  <div class="card-header note_item_title row">',
+      '    <input name="note_item_title" type="text" class="form-control col-10"',
       '      maxlength="100" placeholder="Note item title" value="' + item.note_item_title + '">',
+      '    <button type="button" class="btn btn-outline-danger btn_remove col-2">Remove</button>',
       '  </div>',
       '  <div class="card-body">',
       '    <div class="row item1">',
@@ -128,6 +135,14 @@
     ];
 
     $('#add_point').before(div.join(''));
+  }
+
+  function setEventRemoveItem() {
+    $('.btn_remove').on('click', function (e) {
+      e.preventDefault();
+
+      $(this).parent().parent().remove();
+    });
   }
 
   function setErrors(errors) {

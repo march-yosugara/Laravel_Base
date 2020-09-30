@@ -20,6 +20,10 @@
   white-space: pre-wrap;
 }
 
+.note_item_title  {
+  margin-top: 0;
+}
+
 @media screen and (max-width:1024px) {
   .note_title p {
     font-size: 1.2rem;

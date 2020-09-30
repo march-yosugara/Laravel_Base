@@ -30,7 +30,7 @@ Group Update
   <div class="row">
     <button id="btn_commit" type="button" class="btn btn-outline-success col-5">Commit</button>
     @if($isCreate != '1')
-    <button id="btn_delete" type=“button” class="btn btn-outline-danger col-5">Delete</button>
+    <button id="btn_delete" type="button" class=" btn btn-outline-danger col-5">Delete</button>
     @endif
   </div>
 </div>
