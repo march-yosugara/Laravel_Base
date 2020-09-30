@@ -10,7 +10,7 @@ Reset Password 2
 @endsection
 
 @section('contents')
-<div class="card">
+<div class="card　board">
   <form method="POST" action="{{ route('password.update') }}">
     @csrf
     <input type="hidden" name="token" value="{{ $token }}">

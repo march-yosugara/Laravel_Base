@@ -6,7 +6,7 @@
 @endsection
 
 @section('root')
-<a href='{{ route('group_manage') }}'>Note Manage</a>
+<a href="{{ route('group_manage') }}" class="list-group-item list-group-item-action">Group Manage</a>
 @endsection
 
 @section('subtitle')
@@ -16,12 +16,12 @@ Group Manage
 @section('contents')
 @auth
 @foreach ($groups as $group)
-<div class="card group_card">
+<div class="card card_with_title">
   <div class="card-header">
-    <h3 class="card-title group_name">{{ $group->group_name }}</h3>
+    <p class="card-title group_name">{{ $group->group_name }}</p>
   </div>
   <div class="card-body">
-    <h5 class="card-subtitle mb-2 text-muted group_id">ID : {{ $group->group_id }}</h5>
+    <p class="card-subtitle text-muted group_id">ID : {{ $group->group_id }}</p>
     <div class="row">
       <button type=“button” class="btn btn-outline-primary col-5"
         onclick="location.href='{{ route('group_edit', ['group_id' => $group->group_id]) }}'">Edit</button>
@@ -32,7 +32,7 @@ Group Manage
 </div>
 @endforeach
 @if(count($add_groups) > 0)
-<div class="card add_group">
+<div class="card board">
   <select name="add_group_id" id="add_group_id" class="form-control">
     <option value=""></option>
     @foreach($add_groups as $group)
@@ -44,7 +44,7 @@ Group Manage
   <button id="btn_add" type=“button” class="btn btn-outline-info">Add</button>
 </div>
 @endif
-<div class="card add_group">
+<div class="card board">
   <button id="btn_create" type=“button” class="btn btn-outline-secondary"
     onclick="location.href='{{ route('group_edit', ['group_id' => '0']) }}'">＋</button>
 </div>
