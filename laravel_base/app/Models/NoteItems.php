@@ -34,13 +34,12 @@ class NoteItems extends Model
       ['group_id', '=', $group_id],
       ['note_id', '=', $note_id],
     ];
-    $current_id = NoteItems::where($condition)
-      ->max('note_item_id');
+    $note_items = NoteItems::where($condition);
 
     $next_id = 1;
 
-    if (!is_null($current_id)) {
-      $next_id = $current_id + 1;
+    if ($note_items->exists()) {
+      $next_id = $note_items->max('note_item_id') + 1;
     }
 
     return $next_id;

@@ -69,10 +69,10 @@ class NoteManageBaseService
         ->delete();
 
       // 改めてItem作成
-      foreach ($note_items as $key => $item) {
+      foreach ($note_items as $item) {
         $item['group_id'] = $group_id;
         $item['note_id'] = $note_id;
-        $item['note_item_id'] = $key;
+        $item['note_item_id'] = NoteItems::getNextItemID($group_id, $note_id);
 
         NoteItems::create($item);
       }
