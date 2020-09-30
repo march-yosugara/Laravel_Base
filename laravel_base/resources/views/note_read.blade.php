@@ -37,7 +37,7 @@ Note Read
       <p class="col-2">{{ $item->unit2 }}</p>
     </div>
     <div class="row item_memo">
-      <p class="col-12">{{ $item->memo }}</p>
+      <p class="col-12 memo">{{ $item->memo }}</p>
     </div>
   </div>
 </div>

@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+.memo {
+  white-space: pre-wrap;
+}
+
 @media screen and (max-width:1024px) {
   .note_title p {
     font-size: 1.2rem;
