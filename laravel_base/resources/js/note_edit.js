@@ -42,14 +42,8 @@
 
       axios.post(urls.url_update, datas)
         .then(res => {
-          alert(res.data.message);
-          if (res.data.ret === true) {
-            // item書き換え
-            $('div.note_item').remove();
-            res.data.note_items.forEach(function (item) {
-              createItem(item);
-            });
-          }
+          const message = res.data.message_note + '\n' + res.data.message_items;
+          alert(message);
         })
         .catch(err => {
           if (err) {
