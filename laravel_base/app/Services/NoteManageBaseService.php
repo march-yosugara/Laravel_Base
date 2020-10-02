@@ -26,18 +26,21 @@ class NoteManageBaseService
     }
   }
 
-  // ノート作成
+  // ノート更新
   public function updateNote($note_columns)
   {
     DB::beginTransaction();
 
     try {
-      Notes::create($note_columns);
+      $note = Notes::getNote($note_columns['group_id'], $note_columns['note_id']);
+      $note->update($note_columns);
       DB::commit();
 
       return true;
     } catch (Exception $e) {
       DB::rollback();
+      logger('abc');
+      logger($e->getMessage());
       return false;
     }
   }
