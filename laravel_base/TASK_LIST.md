@@ -1,4 +1,4 @@
-# Larabel_Base 課題
+# March's Base 課題
 
 ## 一覧
 
@@ -20,10 +20,17 @@
 |14|メール機能実装|Medium|2020/10/01|ユーザのメールアドレスの確認等を実装|未着手|2020/00/00|
 |15|2段階認証|Low|2020/10/01|ID・Passに加え、メール等で2段階認証を実装|未実装|2020/00/00|
 |16|グループ追加UI改善|Medium|2020/10/01|グループ追加時に選択ではなく記入に変更|未着手|2020/00/00|
-|17|Title|Priority|Date|Summary|State|Date|
-|18|Title|Priority|Date|Summary|State|Date|
-|19|Title|Priority|Date|Summary|State|Date|
+|17|HPタイトル変更|Low|2020/10/02|HPタイトルを変更し、プロジェクト名から取得|未着手|2020/00/00|
+|18|アイテム削除ボタン|Low|2020/10/02|ノートアイテム削除ボタンを調整|未着手|2020/00/00|
+|19|スマホ版文字サイズ|Low|2020/10/02|スマホ版で文字サイズを少し小さく|未着手|2020/00/00|
 |20|Title|Priority|Date|Summary|State|Date|
+|21|Title|Priority|Date|Summary|State|Date|
+|22|Title|Priority|Date|Summary|State|Date|
+|23|Title|Priority|Date|Summary|State|Date|
+|24|Title|Priority|Date|Summary|State|Date|
+|25|Title|Priority|Date|Summary|State|Date|
+
+[Last](#25)  
 
 ### 1. スマホスタイル
 
@@ -158,10 +165,30 @@ XSERVERにメール機能は存在しているため、アドレスやメール�
 グループ管理画面でグループ追加時に、未加入グループを選択する方式を変更する。  
 規模によるが、全グループ名は見れない方がいいかも。  
 
-### 17. 
+### 17. HPタイトル変更
 
-### 18. 
+HPタイトルを「March's Base」に変更する。  
+この文字列はプロジェクト名から取得する。  
 
-### 19. 
+### 18. アイテム削除ボタン
+
+ノートアイテム削除ボタンがスマホ版で少し大きい。  
+小さくする。  
+
+### 19. スマホ版文字サイズ
+
+スマホ版で文字サイズを小さくする。  
 
 ### 20. 
+
+### 21. 
+
+### 22. 
+
+### 23. 
+
+### 24. 
+
+### 25. 
+
+[Top](#march'sbase課題)  
