@@ -27,7 +27,7 @@ class Notes extends Model
       ['group_id', '=', $group_id],
       ['note_id', '=', $note_id],
     ];
-    return Notes::where($condition)->first();
+    return Notes::where($condition);
   }
 
   public function getNoteItems()

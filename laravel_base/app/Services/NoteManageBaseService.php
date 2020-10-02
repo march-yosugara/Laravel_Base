@@ -33,13 +33,14 @@ class NoteManageBaseService
 
     try {
       $note = Notes::getNote($note_columns['group_id'], $note_columns['note_id']);
-      $note->note_name = $note_columns['note_name'];
-      $note->save();
+      $note->update($note_columns);
       DB::commit();
 
       return true;
     } catch (Exception $e) {
       DB::rollback();
+      logger('abc');
+      logger($e->getMessage());
       return false;
     }
   }
