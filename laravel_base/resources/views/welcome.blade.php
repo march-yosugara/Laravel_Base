@@ -2,7 +2,6 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/guest.css') }}">
-<link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
 
 @section('subtitle')

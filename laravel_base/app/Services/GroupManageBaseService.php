@@ -38,13 +38,6 @@ class GroupManageBaseService
       $group->group_pass = password_hash($group_columns['group_pass'], PASSWORD_DEFAULT);
       $group->save();
 
-      // $condition = [
-      //   ['group_id', '=', $group_columns['group_id']],
-      // ];
-      // $group_columns['group_pass'] = password_hash($group_columns['group_pass'], PASSWORD_DEFAULT);
-      // Groups::where($condition)
-      //   ->update($group_columns);
-
       DB::commit();
       return true;
     } catch (Exception $e) {
@@ -78,22 +71,19 @@ class GroupManageBaseService
     }
   }
 
-  // グループ追加
+  // グループ追加(登録)
   public function addGroup($group_id)
   {
     DB::beginTransaction();
 
     try {
-      $usergroup_columns = array();
-      $usergroup_columns['user_id'] = Auth::user()->id;
-      $usergroup_columns['group_id'] = $group_id;
-      // $usergroup_columns = [
-      //   ['user_id' => Auth::user()->id],
-      //   ['group_id' => $group_id],
-      // ];
+      $usergroup_columns = [
+        'user_id' => Auth::user()->id,
+        'group_id' => $group_id,
+      ];
       UsersGroups::create($usergroup_columns);
-      DB::commit();
 
+      DB::commit();
       return true;
     } catch (Exception $e) {
       DB::rollback();
@@ -107,11 +97,10 @@ class GroupManageBaseService
     DB::beginTransaction();
 
     try {
-      $condition =
-        [
-          ['user_id', Auth::user()->id],
-          ['group_id', $group_id],
-        ];
+      $condition = [
+        ['user_id', Auth::user()->id],
+        ['group_id', $group_id],
+      ];
       $deleted = UsersGroups::where($condition)->delete();
 
       if ($deleted == 1) {

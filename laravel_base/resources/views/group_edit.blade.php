@@ -2,11 +2,13 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-<link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
 
 @section('root')
 <a href="{{ route('group_manage') }}" class="list-group-item list-group-item-action">Group Manage</a>
+@if ($isCreate != '1')
+<a href="" class="list-group-item list-group-item-action">{{ $group->group_id }}:{{ $group->group_name }}</a>
+@endif
 @endsection
 
 @section('subtitle')

@@ -7,22 +7,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-/* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
-
-/* fontawesome */
-@import url(https://weloveiconfonts.com/api/?family=fontawesome);
-[class*="fontawesome-"]:before {
-  font-family: 'Myrica M', 'MyricaM M', 'Consolas';
-}
-
 /* Simple Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   background-color: white;
   color: #5e5e5e;
-  font: 400 87.5%/1rem 'Myrica M', 'MyricaM M', 'Consolas';
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1rem;
+  font-family: 'Talking', 'Haruhi Gakuen', 'Shimanami', 'Myrica M', 'MyricaM M', 'Consolas';
 }
 
 .header {
@@ -58,7 +52,7 @@ a:active {
 .subtitle {
   position: absolute;
   top: 3rem;
-  height: 7%;
+  height: 3.75rem;
   width: 100%;
   display: flex;
 }
@@ -88,8 +82,8 @@ a:active {
 
 .contents {
   position: absolute;
-  top: calc(7% + 3rem);
-  height: calc(100% - 7% - 5.5rem);
+  top: calc(3.75rem + 3rem);
+  height: calc(100% - 3rem - 3.75rem - 2.5rem);
   padding-bottom: 1rem;
   overflow: auto;
 }

@@ -28,6 +28,7 @@ class NoteManageController extends Controller
     return view('note_manage', $items);
   }
 
+  // グループ選択
   public function select(Request $req)
   {
     $form = $req->toArray();
@@ -37,6 +38,7 @@ class NoteManageController extends Controller
     return response()->json(compact('notes'));
   }
 
+  // ノート作成
   public function create(Request $req, $group_id)
   {
     $validator = Validator::make($req->all(), $this->rules());
@@ -45,33 +47,33 @@ class NoteManageController extends Controller
     }
 
     $form = $req->toArray();
-    $note_columns = array();
-    $note_columns['group_id'] = $group_id;
-    $note_columns['note_id'] = Notes::getNoteID($group_id);
-    $note_columns['note_name'] = $form['note_name'];
-    // $note_columns = [
-    //   ['group_id' => $group_id],
-    //   ['note_id' => Notes::getNoteID($group_id)],
-    //   ['note_name' => $form['note_name']],
-    // ];
+    $note_columns = [
+      'group_id' => $group_id,
+      'note_id' => Notes::getNoteID($group_id),
+      'note_name' => $form['note_name'],
+    ];
+
     $ret = $this->service->createNote($note_columns);
     $message = $ret ? 'Note created : ' . $form['note_name'] : 'Note create failed.';
 
     return response()->json(compact('ret', 'message'));
   }
 
+  // ノート編集画面
   public function edit($group_id, $note_id)
   {
     $items = $this->service->getNoteInfo($group_id, $note_id);
     return view('note_edit', $items);
   }
 
+  // ノート表示画面
   public function read($group_id, $note_id)
   {
     $items = $this->service->getNoteInfo($group_id, $note_id);
     return view('note_read', $items);
   }
 
+  // ノート削除
   public function delete(Request $req)
   {
     $form = $req->toArray();
@@ -84,6 +86,7 @@ class NoteManageController extends Controller
     return response()->json(compact('ret', 'message'));
   }
 
+  // ノート・アイテム更新
   public function update(Request $req)
   {
     $validator = Validator::make($req->all(), $this->rules());
@@ -97,20 +100,12 @@ class NoteManageController extends Controller
     $note_id = $form['note_id'];
     $note_items = $form['note_items'];
 
-    $note_columns = array();
-    $note_columns['group_id'] = $group_id;
-    $note_columns['note_id'] = $note_id;
-    $note_columns['note_name'] = $note_name;
-    // $note_columns = [
-    //   ['group_id' => $group_id],
-    //   ['note_id' => $note_id],
-    //   ['note_name' => $note_name],
-    // ];
+    $note_columns = [
+      'group_id' => $group_id,
+      'note_id' => $note_id,
+      'note_name' => $note_name,
+    ];
 
-    logger($note_columns);
-    logger($group_id);
-    logger($note_id);
-    logger($note_items);
     $ret_note = $this->service->updateNote($note_columns);
     $ret_items = $this->service->updateNoteItems($group_id, $note_id, $note_items);
 

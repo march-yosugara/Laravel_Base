@@ -21,6 +21,7 @@ class Notes extends Model
     'note_name',
   ];
 
+  // ノート取得
   public static function getNote($group_id, $note_id)
   {
     $condition = [
@@ -30,6 +31,7 @@ class Notes extends Model
     return Notes::where($condition);
   }
 
+  // 当該ノート内アイテム取得
   public function getNoteItems()
   {
     $condition = [
@@ -41,6 +43,7 @@ class Notes extends Model
     return $noteItems;
   }
 
+  // 使用可能ノートID取得
   public static function getNoteID($group_id)
   {
     $condition = [
