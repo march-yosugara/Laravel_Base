@@ -6,8 +6,10 @@
 @endsection
 
 @section('root')
+<a href=""
+  class="list-group-item list-group-item-action">{{ $note->group_id }}:{{ $note->note_id }}:{{ $note->note_name }}</a>
 <a href="{{ route('note_read', ['group_id' => $note->group_id, 'note_id' => $note->note_id]) }}"
-  class="list-group-item list-group-item-action">Note Read</a>
+  class="list-group-item list-group-item-action">⇔Note Read</a>
 @endsection
 
 @section('subtitle')

@@ -7,6 +7,7 @@
 
 @section('root')
 <a href="{{ route('group_manage') }}" class="list-group-item list-group-item-action">Group Manage</a>
+<a href="" class="list-group-item list-group-item-action">{{ $group->group_id }}:{{ $group->group_name }}</a>
 @endsection
 
 @section('subtitle')
