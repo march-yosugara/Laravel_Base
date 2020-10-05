@@ -17,8 +17,8 @@ class NoteManageBaseService
 
     try {
       Notes::create($note_columns);
-      DB::commit();
 
+      DB::commit();
       return true;
     } catch (Exception $e) {
       DB::rollback();
@@ -34,13 +34,11 @@ class NoteManageBaseService
     try {
       $note = Notes::getNote($note_columns['group_id'], $note_columns['note_id']);
       $note->update($note_columns);
-      DB::commit();
 
+      DB::commit();
       return true;
     } catch (Exception $e) {
       DB::rollback();
-      logger('abc');
-      logger($e->getMessage());
       return false;
     }
   }
@@ -71,7 +69,7 @@ class NoteManageBaseService
       NoteItems::where($condition)
         ->delete();
 
-      // 改めてItem作成
+      // Item再作成
       foreach ($note_items as $item) {
         $item['group_id'] = $group_id;
         $item['note_id'] = $note_id;

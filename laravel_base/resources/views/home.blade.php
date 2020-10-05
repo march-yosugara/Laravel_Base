@@ -3,7 +3,6 @@
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-<link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
 
 @section('subtitle')

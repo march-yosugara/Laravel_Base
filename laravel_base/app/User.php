@@ -43,6 +43,7 @@ class User extends Authenticatable
     return $this->hasMany('App\Models\UsersGroups', 'user_id', 'id');
   }
 
+  // ユーザ登録済みグループ取得
   public function getGroups()
   {
     $group_ids = $this->usersGroups()
@@ -52,6 +53,7 @@ class User extends Authenticatable
     return $groups;
   }
 
+  // ユーザ未登録グループ取得
   public function getAddGroups()
   {
     $group_ids = $this->usersGroups()
@@ -61,6 +63,7 @@ class User extends Authenticatable
     return $groups;
   }
 
+  // グループパスワードチェック
   public function checkGroupPass($group_id, $group_pass)
   {
     $condition = [

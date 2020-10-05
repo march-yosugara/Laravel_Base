@@ -31,6 +31,7 @@ class Groups extends Model
     return $this->hasMany('App\Models\Notes', 'group_id', 'group_id');
   }
 
+  // グループ取得(Model)
   public static function getGroup($group_id)
   {
     $condition = [
@@ -39,6 +40,7 @@ class Groups extends Model
     return Groups::where($condition)->first();
   }
 
+  // 使用可能グループID取得
   public static function getPrimary()
   {
     while (true) {
@@ -54,6 +56,7 @@ class Groups extends Model
     }
   }
 
+  // グループ内ノート取得
   public static function getNotes($group_id)
   {
     $condition = [

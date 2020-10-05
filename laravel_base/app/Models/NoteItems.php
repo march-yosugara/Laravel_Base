@@ -28,6 +28,7 @@ class NoteItems extends Model
     'memo',
   ];
 
+  // 使用可能ノートアイテムID取得
   public static function getNextItemID($group_id, $note_id)
   {
     $condition = [
