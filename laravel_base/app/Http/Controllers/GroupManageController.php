@@ -8,6 +8,7 @@ use Auth;
 use Validator;
 use App\Models\Groups;
 
+
 class GroupManageController extends Controller
 {
   private $service;
@@ -27,7 +28,7 @@ class GroupManageController extends Controller
     return view('group_manage', $items);
   }
 
-  // グループ追加
+  // グループ編集画面
   public function createOrUpdate($group_id)
   {
     if (is_null($group_id) || $group_id == '0') {
@@ -54,22 +55,19 @@ class GroupManageController extends Controller
     }
 
     $form = $req->toArray();
-    $group_columns = array();
-    $group_columns['group_id'] = Groups::getPrimary();
-    $group_columns['group_name'] = $form['group_name'];
-    $group_columns['group_pass'] = $form['group_pass'];
-    // $group_columns = [
-    //   ['group_id' => Groups::getPrimary()],
-    //   ['group_name' => $form['group_name']],
-    //   ['group_pass' => $form['group_pass']],
-    // ];
+    $group_columns = [
+      'group_id' => Groups::getPrimary(),
+      'group_name' => $form['group_name'],
+      'group_pass' => $form['group_pass'],
+    ];
+
     $ret = $this->service->createGroup($group_columns);
     $message = $ret ? 'Group created : ' . $form['group_name'] : 'Group create failed.';
 
     return response()->json(compact('ret', 'message'));
   }
 
-  // グループ追加
+  // グループ追加(登録)
   public function add(Request $req)
   {
     $ret = false;
@@ -110,39 +108,30 @@ class GroupManageController extends Controller
   // グループ編集
   public function update(Request $req)
   {
-    try {
-      $form = $req->toArray();
-      $group_id = $form['group_id'];
+    $form = $req->toArray();
+    $group_id = $form['group_id'];
 
-      $validator = Validator::make($req->all(), $this->rules(false));
-      $validator->after(function ($validator) use ($group_id) {
-        $group = Groups::getGroup($group_id);
-        if (!isset($group)) {
-          $validator->errors()->add('group_id', $group_id . 'is not exists.');
-        }
-      });
-      if ($validator->fails()) {
-        return response()->json(['errors' => $validator->errors()], 422);
+    $validator = Validator::make($req->all(), $this->rules(false));
+    $validator->after(function ($validator) use ($group_id) {
+      $group = Groups::getGroup($group_id);
+      if (!isset($group)) {
+        $validator->errors()->add('group_id', $group_id . 'is not exists.');
       }
-
-      $group_columns = array();
-      $group_columns['group_id'] = $form['group_id'];
-      $group_columns['group_name'] = $form['group_name'];
-      $group_columns['group_pass'] = $form['group_pass'];
-      // $group_columns = [
-      //   ['group_id' => $form['group_id']],
-      //   ['group_name' => $form['group_name']],
-      //   ['group_pass' => $form['group_pass']],
-      // ];
-      $ret = $this->service->updateGroup($group_columns);
-      $message = $ret ? 'Group updated : ' . $form['group_name'] : 'Group update failed.';
-
-      return response()->json(compact('ret', 'message'));
-    } catch (\Exception $err) {
-      $ret = false;
-      $message = $err->getMessage();
-      return response()->json(compact('ret', 'message'));
+    });
+    if ($validator->fails()) {
+      return response()->json(['errors' => $validator->errors()], 422);
     }
+
+    $group_columns = [
+      'group_id' => $form['group_id'],
+      'group_name' => $form['group_name'],
+      'group_pass' => $form['group_pass'],
+    ];
+
+    $ret = $this->service->updateGroup($group_columns);
+    $message = $ret ? 'Group updated : ' . $form['group_name'] : 'Group update failed.';
+
+    return response()->json(compact('ret', 'message'));
   }
 
   // グループ削除

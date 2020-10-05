@@ -50,6 +50,7 @@
       <p>&copy; 2020 March Yosugara</p>
     </div>
   </div>
+  <script type="text/javascript" src="//webfonts.xserver.jp/js/xserver.js"></script>
   <script src="{{ asset('js/app.js') }}"></script>
   <script>
     var _url_logout = '{{ route('logout') }}';
