@@ -188,6 +188,8 @@ HPタイトルを「March's Base」に変更する。
 php artisan make:middleware SetLocale
 ~~~
 
+[参考:Laravel多言語対応](https://yama-itech.net/laravel-multi-language)  
+
 ### 18. アイテム削除ボタン
 
 ノートアイテム削除ボタンがスマホ版で少し大きい。  
