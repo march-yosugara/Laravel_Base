@@ -9,7 +9,7 @@
   $user = Auth::user();
   @endphp
   @endauth
-  <title>LaravelBase</title>
+  <title>@lang('messages.app_name')</title>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
   @yield('styles')
@@ -19,7 +19,7 @@
   <div class="wrapper">
     <div class="header">
       <a href="{{ route('home') }}">
-        <h1>LaravelBase</h1>
+        <h1>@lang('messages.app_name')</h1>
       </a>
     </div>
     <div class="right-menu">
