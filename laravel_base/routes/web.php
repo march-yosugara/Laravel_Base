@@ -18,6 +18,13 @@ Route::get('/', function () {
   return redirect('login');
 })->name('welcome');
 
+Route::group(['middleware' => 'set.locale'], function () {
+  Route::get('/setlocale/{locale}', function ($locale) {
+    session()->put('locale', $locale);
+    return redirect()->back();
+  })->name('locale');
+});
+
 Auth::routes();
 Route::get('home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth'], 'prefix' => 'march'], function () {
