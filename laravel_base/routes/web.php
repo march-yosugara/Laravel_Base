@@ -25,8 +25,9 @@ Route::group(['middleware' => 'set.locale'], function () {
   })->name('locale');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('home', 'HomeController@index')->name('home');
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'march'], function () {
   Route::get('home', 'HomeController@index')->name('home');
   Route::group(['prefix' => 'Group'], function () {
