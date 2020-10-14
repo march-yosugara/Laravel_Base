@@ -15,5 +15,38 @@ return [
 
   'failed' => 'ログインできません。',
   'throttle' => 'ログイン試行回数が多すぎます。:seconds秒後に再試行してください。',
-
+  'welcome' => [
+    'subtitle' => 'Sign In',
+    'ph_email' => 'Email Address',
+    'ph_password' => 'Password',
+    'btn_signin' => 'Sign In',
+    'btn_register' => 'Register',
+    'btn_forget_pass' => 'Forgot Password',
+  ],
+  'register' => [
+    'subtitle' => 'Register',
+    'ph_name' => 'User Name',
+    'ph_email' => 'Email Address',
+    'ph_password' => 'Password',
+    'ph_password_conf' => 'Password Confirm',
+    'btn_register' => 'Register',
+  ],
+  'verify_email' => [
+    'subtitle' => 'Verify',
+    'cardtitle' => 'Verify Your Email Address',
+    'btn_verify' => 'Click here to request another.',
+    'mes_verify' => 'Before proceeding, please check your email for a verification link.',
+    'mes_resent' => 'A fresh verification link has been sent to your email address.',
+  ],
+  'reset_email' => [
+    'subtitle1' => 'Reset Password 1',
+    'subtitle2' => 'Reset Password 2',
+    'ph_email' => 'Email Address',
+    'ph_new_password' => 'New Password',
+    'ph_new_password_conf' => 'New Password Confirm',
+    'btn_send' => 'Send Password Reset Link',
+    'btn_reset' => 'Reset Password',
+    'mes_verify' => 'Before proceeding, please check your email for a verification link.',
+    'resent' => 'A fresh verification link has been sent to your email address.',
+  ],
 ];
