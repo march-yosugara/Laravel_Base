@@ -15,5 +15,4 @@ return [
 
   'previous' => '&laquo; もどる',
   'next' => 'すすむ &raquo;',
-
 ];
