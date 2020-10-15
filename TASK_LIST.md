@@ -196,6 +196,8 @@ php artisan make:middleware SetLocale
 
 ノートアイテム削除ボタンがスマホ版で少し大きい。  
 小さくする。  
+- [参考](https://bootstrap-guide.com/utilities/close-icon)  
+  bootstrapでcloseクラスと「&times;」で作成する  
 
 ### 19. スマホ版文字サイズ
 
