@@ -29,8 +29,8 @@
           <p>Name : {{ $user->name }}</p>
           <p>Mail : {{ $user->email }}</p>
           <button id="btn_group" type="button" class="btn btn-outline-primary"
-            onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
-          <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
+            onclick="location.href='{{ route('group_manage') }}'">{{ __('auth.app.btn_group') }}</button>
+          <button id="btn_logout" type="button" class="btn btn-outline-light">{{ __('auth.app.btn_logout') }}</button>
         </div>
       </div>
       @endauth

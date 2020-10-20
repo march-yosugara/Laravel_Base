@@ -15,6 +15,12 @@ return [
 
   'failed' => 'These credentials do not match our records.',
   'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
+  'app' => [
+    'btn_group' => 'Group Manage',
+    'btn_logout' => 'Logout',
+  ],
+
   'welcome' => [
     'subtitle' => 'Sign In',
     'ph_email' => 'Email Address',
@@ -23,6 +29,7 @@ return [
     'btn_register' => 'Register',
     'btn_forget_pass' => 'Forgot Password',
   ],
+
   'register' => [
     'subtitle' => 'Register',
     'ph_name' => 'User Name',
@@ -31,6 +38,7 @@ return [
     'ph_password_conf' => 'Password Confirm',
     'btn_register' => 'Register',
   ],
+
   'verify_email' => [
     'subtitle' => 'Verify',
     'cardtitle' => 'Verify Your Email Address',
@@ -38,6 +46,7 @@ return [
     'mes_verify' => 'Before proceeding, please check your email for a verification link.',
     'mes_resent' => 'A fresh verification link has been sent to your email address.',
   ],
+
   'reset_email' => [
     'subtitle1' => 'Reset Password 1',
     'subtitle2' => 'Reset Password 2',
@@ -46,7 +55,5 @@ return [
     'ph_new_password_conf' => 'New Password Confirm',
     'btn_send' => 'Send Password Reset Link',
     'btn_reset' => 'Reset Password',
-    'mes_verify' => 'Before proceeding, please check your email for a verification link.',
-    'resent' => 'A fresh verification link has been sent to your email address.',
   ],
 ];

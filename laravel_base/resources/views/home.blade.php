@@ -6,25 +6,25 @@
 @endsection
 
 @section('subtitle')
-Home
+{{ __('messages.home.subtitle') }}
 @endsection
 
 @section('contents')
 @auth
 <div class="card board">
-  <h3 class="card-title">My Page</h3>
-  You are logged in!
+  <h3 class="card-title">{{ __('messages.home.card_title_mypage') }}</h3>
+  {{ __('messages.home.mes_mypage') }}
 </div>
 <div class="card board">
-  <h3 class="card-title">Notes</h2>
+  <h3 class="card-title">{{ __('messages.home.service_notes') }}</h2>
     <button id="btn_notes" type="button" class=" btn btn-outline-primary"
-      onclick="window.open('{{ route('note_manage') }}','_blank')">Go Notes</button>
+      onclick="window.open('{{ route('note_manage') }}','_blank')">{{ __('messages.home.btn_notes') }}</button>
 </div>
 @endauth
 @guest
 <div class="card board">
-  <h3 class="card-title">My Page</h3>
-  Are You logged in!?
+  <h3 class="card-title">{{ __('messages.home.card_title_mypage') }}</h3>
+  {{ __('messages.home.mes_guest') }}
 </div>
 @endguest
 @endsection
