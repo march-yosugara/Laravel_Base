@@ -6,11 +6,12 @@
 @endsection
 
 @section('root')
-<a href="{{ route('group_manage') }}" class="list-group-item list-group-item-action">Group Manage</a>
+<a href="{{ route('group_manage') }}" class="list-group-item list-group-item-action">
+  {{ __('messages.group_manage.subtitle') }}</a>
 @endsection
 
 @section('subtitle')
-Group Manage
+{{ __('messages.group_manage.subtitle') }}
 @endsection
 
 @section('contents')
@@ -24,9 +25,10 @@ Group Manage
     <p class="card-subtitle text-muted group_id">ID : {{ $group->group_id }}</p>
     <div class="row">
       <button type="button" class=" btn btn-outline-primary col-5"
-        onclick="location.href='{{ route('group_edit', ['group_id' => $group->group_id]) }}'">Edit</button>
+        onclick="location.href='{{ route('group_edit', ['group_id' => $group->group_id]) }}'">
+        {{ __('messages.group_manage.btn_edit') }}</button>
       <button type="button" class=" btn btn-outline-danger btn_remove col-5"
-        name='{{ $group->group_id }}'>Remove</button>
+        name='{{ $group->group_id }}'>{{ __('messages.group_manage.btn_remove') }}</button>
     </div>
   </div>
 </div>
@@ -40,8 +42,9 @@ Group Manage
     @endforeach
   </select>
   <input id="add_group_pass" type="password" class="form-control" name="add_group_pass" required
-    placeholder="Group Password">
-  <button id="btn_add" type="button" class=" btn btn-outline-info">Add</button>
+    placeholder="{{ __('messages.group_manage.ph_group_pass') }}">
+  <button id="btn_add" type="button" class=" btn btn-outline-info">
+    {{ __('messages.group_manage.btn_add') }}</button>
 </div>
 @endif
 <div class="card board">

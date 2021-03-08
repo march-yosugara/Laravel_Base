@@ -6,11 +6,12 @@
 @endsection
 
 @section('root')
-<a href="{{ route('note_manage') }}" class="list-group-item list-group-item-action">Note Manage</a>
+<a href="{{ route('note_manage') }}"
+  class="list-group-item list-group-item-action">{{ __('messages.note_manage.subtitle') }}</a>
 @endsection
 
 @section('subtitle')
-Note Manage
+{{ __('messages.note_manage.subtitle') }}
 @endsection
 
 @section('contents')
@@ -31,8 +32,9 @@ Note Manage
   </div>
   <div class="card board">
     <input id="note_name" type="text" class="form-control" name="note_name" required maxlength="100"
-      placeholder="Note name">
-    <button id="btn_create" type="button" class=" btn btn-outline-secondary">Create Note</button>
+      placeholder="{{ __('messages.note_manage.ph_note_name') }}">
+    <button id="btn_create" type="button"
+      class=" btn btn-outline-secondary">{{ __('messages.note_manage.btn_create') }}</button>
   </div>
 </form>
 @endif
@@ -46,6 +48,11 @@ Note Manage
     url_edit: '{{ route('note_edit', ['group_id' => 'group_id', 'note_id' => 'note_id']) }}',
     url_read: '{{ route('note_read', ['group_id' => 'group_id', 'note_id' => 'note_id']) }}',
     url_create: '{{ route('note_create', ['group_id' => 'group_id']) }}',
+  };
+  var _js_mes = {
+    mes_no_select_group: '{{ __('messages.js.mes_no_select_group') }}',
+    btn_edit: '{{ __('messages.js.btn_edit') }}',
+    btn_read: '{{ __('messages.js.btn_read') }}',
   };
 </script>
 <script src="{{ asset('/js/note_manage.js') }}"></script>

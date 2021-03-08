@@ -32,19 +32,36 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 // });
 
 (function () {
+  const app_urls = _app_urls;
+  const app_js_mes = _app_js_mes;
+
   $(window).on('load', () => {
 
+    $('select[name="lang"]').val($('html').attr('lang'));
+
+    $('select[name="lang"]').on('change', function () {
+      localeChange();
+    });
   });
 
   $('#btn_logout').on('click', function () {
-    axios.post(_url_logout)
+    axios.post(app_urls.url_logout)
       .then(res => {
-        alert('Logouted.');
-        window.location.href = _url_welcome;
+        alert(app_js_mes.mes_logged_out);
+        window.location.href = app_urls.url_welcome;
       })
       .catch(err => {
         alert(err);
       });
   });
 
+  function localeChange() {
+    var locale = $('select[name="lang"]').val();
+    if (locale === 'ja') {
+      window.location.href = app_urls.url_ja;
+    }
+    else {
+      window.location.href = app_urls.url_en;
+    }
+  }
 })();

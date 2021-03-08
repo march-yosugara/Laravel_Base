@@ -1,5 +1,6 @@
 (function () {
   const urls = _urls;
+  const js_mes = _js_mes;
 
   const form_names = {
     inputs: [
@@ -31,7 +32,7 @@
       });
       var group_id = $('select[name="group_id"]').val();
       if (!group_id) {
-        alert('Select Group!');
+        alert(js_mes.mes_no_select_group);
         return;
       }
 
@@ -78,9 +79,9 @@
             '    <p class="card-subtitle text-muted note_id">ID : ' + item.note_id + '</p>',
             '    <div class="row">',
             '      <button type="button" class="btn btn-outline-primary col-5"',
-            '        onclick="window.open(\'' + urlEdit + '\',\'_blank\')">Edit</button>',
+            '        onclick="window.open(\'' + urlEdit + '\',\'_blank\')">' + js_mes.btn_edit + '</button>',
             '      <button type="button" class="btn btn-outline-secondary col-5"',
-            '        onclick="window.open(\'' + urlRead + '\',\'_blank\')">Read</button>',
+            '        onclick="window.open(\'' + urlRead + '\',\'_blank\')">' + js_mes.btn_read + '</button>',
             '    </div >',
             '  </div >',
             '</div >',

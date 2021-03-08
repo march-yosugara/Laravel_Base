@@ -9,11 +9,11 @@
 <a href=""
   class="list-group-item list-group-item-action">{{ $note->group_id }}:{{ $note->note_id }}:{{ $note->note_name }}</a>
 <a href="{{ route('note_edit', ['group_id' => $note->group_id, 'note_id' => $note->note_id]) }}"
-  class="list-group-item list-group-item-action">⇔Note Edit</a>
+  class="list-group-item list-group-item-action">⇔{{ __('messages.note_edit.subtitle') }}</a>
 @endsection
 
 @section('subtitle')
-Note Read
+{{ __('messages.note_read.subtitle') }}
 @endsection
 
 @section('contents')

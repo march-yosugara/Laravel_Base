@@ -21,6 +21,10 @@
       <a href="{{ route('home') }}">
         <h1>@lang('messages.app_name')</h1>
       </a>
+      <select name="lang" id="lang" class="form-control d-inline">
+        <option value="en">English</option>
+        <option value="ja">Japanese</option>
+      </select>
     </div>
     <div class="right-menu">
       @auth
@@ -29,8 +33,8 @@
           <p>Name : {{ $user->name }}</p>
           <p>Mail : {{ $user->email }}</p>
           <button id="btn_group" type="button" class="btn btn-outline-primary"
-            onclick="location.href='{{ route('group_manage') }}'">Group Manage</button>
-          <button id="btn_logout" type="button" class="btn btn-outline-light">Logout</button>
+            onclick="location.href='{{ route('group_manage') }}'">{{ __('auth.app.btn_group') }}</button>
+          <button id="btn_logout" type="button" class="btn btn-outline-light">{{ __('auth.app.btn_logout') }}</button>
         </div>
       </div>
       @endauth
@@ -47,15 +51,22 @@
       @yield('contents')
     </div>
     <div class="footer">
-      <p>&copy; 2020 March Yosugara</p>
+      <p>&copy; 2021 March Yosugara</p>
     </div>
   </div>
+  <script>
+    var _app_urls = {
+      url_logout: '{{ route('logout') }}',
+      url_welcome: '{{ route('welcome') }}',
+      url_ja: '{{ route('locale', ['locale' => 'ja']) }}',
+      url_en: '{{ route('locale', ['locale' => 'en']) }}',
+    };
+    var _app_js_mes = {
+      mes_logged_out: '{{ __('messages.js.mes_logged_out') }}',
+    };
+  </script>
   <script type="text/javascript" src="//webfonts.xserver.jp/js/xserver.js"></script>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script>
-    var _url_logout = '{{ route('logout') }}';
-    var _url_welcome = '{{ route('welcome') }}';
-  </script>
   @yield('scripts')
 </body>
 
