@@ -62,7 +62,7 @@ class GroupManageController extends Controller
     ];
 
     $ret = $this->service->createGroup($group_columns);
-    $message = $ret ? 'Group created : ' . $form['group_name'] : 'Group create failed.';
+    $message = $ret ? __('messages.group_manage.mes_grp_created') . $form['group_name'] : __('messages.group_manage.mes_grp_creat_failed');
 
     return response()->json(compact('ret', 'message'));
   }
@@ -80,10 +80,10 @@ class GroupManageController extends Controller
     if (Auth::user()->checkGroupPass($add_group_id, $add_group_pass)) {
       $ret = $this->service->addGroup($add_group_id);
       $add_group = Groups::getGroup($add_group_id);
-      $message = $ret ? 'Group add : ' . $add_group->group_name : 'Group add failed.';
+      $message = $ret ? __('messages.group_manage.mes_grp_add') . $add_group->group_name : __('messages.group_manage.mes_grp_add_failed');
     } else {
       $ret = false;
-      $message = 'Authentication failed';
+      $message = __('messages.group_manage.mes_grp_auth_failed');
     }
 
     return response()->json(compact('ret', 'message'));
@@ -100,7 +100,7 @@ class GroupManageController extends Controller
 
     $ret = $this->service->removeGroup($group_id);
     $remove_group = Groups::getGroup($group_id);
-    $message = $ret ? 'Group remove : ' . $remove_group->group_name : 'Group remove failed.';
+    $message = $ret ? __('messages.group_manage.mes_grp_removed') . $remove_group->group_name : __('messages.group_manage.mes_grp_remove_failed');
 
     return response()->json(compact('ret', 'message'));
   }
@@ -115,7 +115,7 @@ class GroupManageController extends Controller
     $validator->after(function ($validator) use ($group_id) {
       $group = Groups::getGroup($group_id);
       if (!isset($group)) {
-        $validator->errors()->add('group_id', $group_id . 'is not exists.');
+        $validator->errors()->add('group_id', $group_id . __('messages.group_manage.mes_grp_not_exist'));
       }
     });
     if ($validator->fails()) {
@@ -129,7 +129,7 @@ class GroupManageController extends Controller
     ];
 
     $ret = $this->service->updateGroup($group_columns);
-    $message = $ret ? 'Group updated : ' . $form['group_name'] : 'Group update failed.';
+    $message = $ret ? __('messages.group_manage.mes_grp_updated') . $form['group_name'] : __('messages.group_manage.mes_grp_update_failed');
 
     return response()->json(compact('ret', 'message'));
   }
@@ -141,7 +141,7 @@ class GroupManageController extends Controller
     $group_id = $form['group_id'];
 
     $ret = $this->service->deleteGroup($group_id);
-    $message = $ret ? 'Group delete : ' . $group_id : 'Group delete failed.';
+    $message = $ret ? __('messages.group_manage.mes_grp_deleted') . $group_id : __('messages.group_manage.mes_grp_delete_failed');
 
     return response()->json(compact('ret', 'message'));
   }

@@ -21,6 +21,10 @@
       <a href="{{ route('home') }}">
         <h1>@lang('messages.app_name')</h1>
       </a>
+      <select name="lang" id="lang" class="form-control d-inline">
+        <option value="en">English</option>
+        <option value="ja">Japanese</option>
+      </select>
     </div>
     <div class="right-menu">
       @auth
@@ -47,15 +51,22 @@
       @yield('contents')
     </div>
     <div class="footer">
-      <p>&copy; 2020 March Yosugara</p>
+      <p>&copy; 2021 March Yosugara</p>
     </div>
   </div>
+  <script>
+    var _app_urls = {
+      url_logout: '{{ route('logout') }}',
+      url_welcome: '{{ route('welcome') }}',
+      url_ja: '{{ route('locale', ['locale' => 'ja']) }}',
+      url_en: '{{ route('locale', ['locale' => 'en']) }}',
+    };
+    var _app_js_mes = {
+      mes_logged_out: '{{ __('messages.js.mes_logged_out') }}',
+    };
+  </script>
   <script type="text/javascript" src="//webfonts.xserver.jp/js/xserver.js"></script>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script>
-    var _url_logout = '{{ route('logout') }}';
-    var _url_welcome = '{{ route('welcome') }}';
-  </script>
   @yield('scripts')
 </body>
 

@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Groups;
+use App\Notifications\PasswordResetMultiLang;
+use App\Notifications\VerifyEmailMultiLang;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -79,5 +81,15 @@ class User extends Authenticatable implements MustVerifyEmail
     } else {
       return false;
     }
+  }
+
+  public function sendEmailVerificationNotification()
+  {
+    $this->notify(new VerifyEmailMultiLang);
+  }
+
+  public function sendPasswordResetNotification($token)
+  {
+    $this->notify(new PasswordResetMultiLang($token));
   }
 }

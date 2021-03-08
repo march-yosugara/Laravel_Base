@@ -28,7 +28,7 @@
   <input id="group_name" type="text" class="form-control" name="group_name" value="{{ $group->group_name }}" required
     maxlength="100" autofocus placeholder="{{ __('messages.group_edit.ph_group_name') }}">
   <input id="group_pass" type="password" class="form-control" name="group_pass" required
-  　　placeholder="{{ __('messages.group_edit.ph_group_pass') }}">
+    placeholder="{{ __('messages.group_edit.ph_group_pass') }}">
   <input id="group_pass_confirmation" type="password" class="form-control" name="group_pass_confirmation" required
     placeholder="{{ __('messages.group_edit.ph_group_pass_confirm') }}">
   <div class="row">

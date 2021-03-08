@@ -146,5 +146,17 @@ return [
     |
     */
 
-  'attributes' => [],
+  'attributes' => [
+    'group_pass' => 'Group Password',
+    'group_name' => 'Group Name',
+    'group_pass_confirmation' => 'Password Confirmation',
+    'note_name' => 'Note Name',
+    'note_items.*.note_item_title' => 'Item Title',
+    'note_items.*.str1' => 'Text１',
+    'note_items.*.int_val1' => 'Number１',
+    'note_items.*.unit1' => 'Unit１',
+    'note_items.*.str2' => 'Text２',
+    'note_items.*.int_val2' => 'Number２',
+    'note_items.*.unit2' => 'Unit２',
+  ],
 ];

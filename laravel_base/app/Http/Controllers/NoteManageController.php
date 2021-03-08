@@ -54,7 +54,7 @@ class NoteManageController extends Controller
     ];
 
     $ret = $this->service->createNote($note_columns);
-    $message = $ret ? 'Note created : ' . $form['note_name'] : 'Note create failed.';
+    $message = $ret ? __('messages.note_manage.mes_note_created') . $form['note_name'] : __('messages.note_manage.mes_note_create_failed');
 
     return response()->json(compact('ret', 'message'));
   }
@@ -81,7 +81,7 @@ class NoteManageController extends Controller
     $note_id = $form['note_id'];
 
     $ret = $this->service->deleteNote($group_id, $note_id);
-    $message = $ret ? 'Note delete : ' . $group_id . ':' . $note_id : 'Note delete failed.';
+    $message = $ret ? __('messages.note_manage.mes_note_deleted') . $group_id . ':' . $note_id : __('messages.note_manage.mes_note_delete_failed');
 
     return response()->json(compact('ret', 'message'));
   }
@@ -109,8 +109,8 @@ class NoteManageController extends Controller
     $ret_note = $this->service->updateNote($note_columns);
     $ret_items = $this->service->updateNoteItems($group_id, $note_id, $note_items);
 
-    $message_note = $ret_note ? 'Note name updated : ' . $note_name : 'Note name update failed.';
-    $message_items = $ret_items ? 'Note items updated : ' . count($note_items) . 'items' : 'Note items update failed.';
+    $message_note = $ret_note ? __('messages.note_manage.mes_note_name_updated') . $note_name : __('messages.note_manage.mes_note_name_update_failed');
+    $message_items = $ret_items ? __('messages.note_manage.mes_note_items_updated') . count($note_items) . __('messages.note_manage.mes_note_items_unit') : __('messages.note_manage.mes_note_items_update_failed');
 
     return response()->json(compact('ret_note', 'ret_items', 'message_note', 'message_items'));
   }

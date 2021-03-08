@@ -146,5 +146,17 @@ return [
     |
     */
 
-  'attributes' => [],
+  'attributes' => [
+    'group_pass' => 'グループパスワード',
+    'group_name' => 'グループ名',
+    'group_pass_confirmation' => 'パスワード確認',
+    'note_name' => 'ノート名',
+    'note_items.*.note_item_title' => 'アイテムタイトル',
+    'note_items.*.str1' => '項目１',
+    'note_items.*.int_val1' => '数値１',
+    'note_items.*.unit1' => '単位１',
+    'note_items.*.str2' => '項目２',
+    'note_items.*.int_val2' => '数値２',
+    'note_items.*.unit2' => '単位２',
+  ],
 ];

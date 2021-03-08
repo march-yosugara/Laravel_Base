@@ -6,6 +6,7 @@
 
 @section('subtitle')
 Confirm
+{{ __('auth.confirm.subtitle') }}
 @endsection
 
 @section('contents')
@@ -13,16 +14,16 @@ Confirm
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card　board">
-        <div class="card-header">{{ __('Confirm Password') }}</div>
+        <div class="card-header">{{ __('auth.confirm.header') }}</div>
 
         <div class="card-body">
-          {{ __('Please confirm your password before continuing.') }}
+          {{ __('auth.confirm.text') }}
 
           <form method="POST" action="{{ route('password.confirm') }}">
             @csrf
 
             <div class="form-group row">
-              <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+              <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('auth.confirm.label') }}</label>
 
               <div class="col-md-6">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
@@ -39,12 +40,12 @@ Confirm
             <div class="form-group row mb-0">
               <div class="col-md-8 offset-md-4">
                 <button type="submit" class="btn btn-outline-primary">
-                  {{ __('Confirm Password') }}
+                  {{ __('auth.confirm.header') }}
                 </button>
 
                 @if (Route::has('password.request'))
                 <a class="btn btn-outline-link" href="{{ route('password.request') }}">
-                  {{ __('Forgot Your Password?') }}
+                  {{ __('auth.confirm.forgot') }}
                 </a>
                 @endif
               </div>

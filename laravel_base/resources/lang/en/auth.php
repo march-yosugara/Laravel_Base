@@ -56,4 +56,12 @@ return [
     'btn_send' => 'Send Password Reset Link',
     'btn_reset' => 'Reset Password',
   ],
+
+  'confirm' => [
+    'subtitle' => 'Confirm',
+    'header' => 'Confirm Password',
+    'label' => 'Password',
+    'text' => 'Please confirm your password before continuing.',
+    'forgot' => 'Forgot Your Password?',
+  ],
 ];
