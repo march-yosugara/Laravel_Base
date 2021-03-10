@@ -13,7 +13,7 @@ return [
     |
     */
 
-  'failed' => 'ログインできません。',
+  'failed' => 'これらの資格情報は存在しません。',
   'throttle' => '一定数ログインに失敗しました。:seconds秒後に再試行してください。',
 
   'app' => [
@@ -25,6 +25,7 @@ return [
     'subtitle' => 'ログイン',
     'ph_email' => 'メールアドレス',
     'ph_password' => 'パスワード',
+    'remember_id' => 'IDを保存する',
     'btn_signin' => 'ログイン',
     'btn_register' => 'ユーザ登録へ',
     'btn_forget_pass' => 'パスワードを忘れた場合',

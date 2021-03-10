@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,19 @@ class LoginController extends Controller
   public function __construct()
   {
     $this->middleware('guest')->except('logout');
+  }
+
+  protected function authenticated(Request $request, $user)
+  {
+    $form = $request->toArray();
+    $email = $form['email'];
+
+    if ($form['remember_id']) {
+      Cookie::queue(env('C_ID'), $email, 60 * 24 * 7);
+    } else {
+      Cookie::queue(Cookie::forget(env('C_ID')));
+    }
+
+    return redirect()->intended($this->redirectPath());
   }
 }

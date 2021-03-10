@@ -71,7 +71,7 @@ const { isBuffer } = require("lodash");
 
   function setErrors(errors) {
     Object.keys(errors).forEach(name => {
-      const html = '<div class="invalid-feedback error-message">' + errors[name][0] + '</div>';
+      const html = '<div class="invalid-feedback">' + errors[name][0] + '</div>';
       const target = $('[name="' + name + '"]');
       target.addClass('is-invalid');
       target.after(html);

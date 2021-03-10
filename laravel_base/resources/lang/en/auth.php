@@ -13,7 +13,7 @@ return [
     |
     */
 
-  'failed' => 'These credentials do not match our records.',
+  'failed' => 'These credentials do not exist.',
   'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
   'app' => [
@@ -25,6 +25,7 @@ return [
     'subtitle' => 'Sign In',
     'ph_email' => 'Email Address',
     'ph_password' => 'Password',
+    'remember_id' => 'Remember ID',
     'btn_signin' => 'Sign In',
     'btn_register' => 'Register',
     'btn_forget_pass' => 'Forgot Password',
