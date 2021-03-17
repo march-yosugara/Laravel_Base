@@ -6,6 +6,10 @@
   top: 0;
 }
 
+.custom-control-label::after {
+  top: 0.08rem;
+}
+
 .switch-div {
   margin: 0.5rem 0 0;
 }
@@ -50,6 +54,12 @@ input:focus {
   margin: 1rem auto 0;
   padding: 0 2rem 0.5rem;
   width: 60%;
+}
+
+.card,
+.btn,
+.form-control {
+  border-radius: 1rem;
 }
 
 .card_with_title {

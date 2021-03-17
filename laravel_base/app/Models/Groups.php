@@ -32,11 +32,13 @@ class Groups extends Model
   }
 
   // グループ取得(Model)
-  public static function getGroup($group_id)
+  public static function getGroup($group_id, $search_type = 'ID')
   {
+    $search_type_clm = $search_type == 'ID' ? 'group_id' : 'group_name';
     $condition = [
-      ['group_id', '=', $group_id],
+      [$search_type_clm, '=', $group_id],
     ];
+
     return Groups::where($condition)->first();
   }
 

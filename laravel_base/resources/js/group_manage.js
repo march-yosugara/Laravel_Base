@@ -3,12 +3,13 @@
 
   const form_names = {
     inputs: [
-      'add_group_pass'
+      'add_group_id',
+      'add_group_pass',
     ],
-    selects: [
-      'add_group_id'
+    selects: [],
+    radios: [
+      'search_type',
     ],
-    radios: [],
   };
 
   $(window).on('load', () => {
@@ -17,8 +18,8 @@
       form_names.inputs.forEach(function (name) {
         datas[name] = $('input[name="' + name + '"]').val();
       });
-      form_names.selects.forEach(function (name) {
-        datas[name] = $('select[name="' + name + '"]').val();
+      form_names.radios.forEach(function (name) {
+        datas[name] = $('input[name="' + name + '"]:checked').val();
       });
 
       axios.post(urls.url_add, datas)

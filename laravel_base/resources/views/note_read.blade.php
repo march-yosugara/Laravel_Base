@@ -16,6 +16,23 @@
 {{ __('messages.note_read.subtitle') }}
 @endsection
 
+@section('gm_list')
+@auth
+@php
+$gm_title = \App\User::getGMTitle('M', $note->group_id);
+$gm_list = \App\User::getGMList('M', $note->group_id);
+@endphp
+@endauth
+<h5 class="card-title">{{ $gm_title }}</h5>
+@if(count($gm_list) > 0)
+<ul class="list-group list-group-flush">
+  @foreach($gm_list as $item)
+  <li class="list-group-item">{{ $item['name'] }}</li>
+  @endforeach
+</ul>
+@endif
+@endsection
+
 @section('contents')
 @auth
 <div class="card board note_title">

@@ -14,6 +14,24 @@
 {{ __('messages.note_manage.subtitle') }}
 @endsection
 
+@section('gm_list')
+@auth
+@php
+$gm_title = \App\User::getGMTitle('G');
+$gm_list = \App\User::getGMList('G');
+@endphp
+@endauth
+<h5 class="card-title">{{ $gm_title }}</h5>
+@if(count($gm_list) > 0)
+<div class="list-group list-group-flush">
+  @foreach($gm_list as $item)
+  <a href="{{ route('group_edit', ['group_id' => $item['id']]) }}"
+    class="list-group-item list-group-item-action">{{ $item['name'] }}</a>
+  @endforeach
+</div>
+@endif
+@endsection
+
 @section('contents')
 @auth
 @if(count($groups) > 0)

@@ -28,14 +28,16 @@ class GroupManageBaseService
   }
 
   // グループ編集
-  public function updateGroup($group_columns)
+  public function updateGroup($form)
   {
     DB::beginTransaction();
 
     try {
-      $group = Groups::getGroup($group_columns['group_id']);
-      $group->group_name = $group_columns['group_name'];
-      $group->group_pass = password_hash($group_columns['group_pass'], PASSWORD_DEFAULT);
+      $group = Groups::getGroup($form['group_id']);
+      $group->group_name = $form['group_name'];
+      if ($form['change_pass']) {
+        $group->group_pass = password_hash($form['group_pass'], PASSWORD_DEFAULT);
+      }
       $group->save();
 
       DB::commit();
@@ -72,11 +74,16 @@ class GroupManageBaseService
   }
 
   // グループ追加(登録)
-  public function addGroup($group_id)
+  public function addGroup($group_id, $search_type = 'ID')
   {
     DB::beginTransaction();
 
     try {
+      if ($search_type == 'NAME') {
+        $group = Groups::where('group_name', $group_id)->first();
+        $group_id = $group->group_id;
+      }
+
       $usergroup_columns = [
         'user_id' => Auth::user()->id,
         'group_id' => $group_id,
