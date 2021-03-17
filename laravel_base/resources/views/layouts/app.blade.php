@@ -37,22 +37,28 @@
           <button id="btn_logout" type="button" class="btn btn-outline-light">{{ __('auth.app.btn_logout') }}</button>
         </div>
       </div>
-      @endauth
-    </div>
-    <div class="subtitle">
-      <div class="root list-group list-group-flush">
-        @yield('root')
+      <div class="group_member_list">
+        <div class="card board">
+          @yield('gm_list')
+        </div>
       </div>
-      <h2>
-        @yield('subtitle')
-      </h2>
     </div>
-    <div class="contents">
-      @yield('contents')
+    @endauth
+  </div>
+  <div class="subtitle">
+    <div class="root list-group list-group-flush">
+      @yield('root')
     </div>
-    <div class="footer">
-      <p>&copy; 2021 March Yosugara</p>
-    </div>
+    <h2>
+      @yield('subtitle')
+    </h2>
+  </div>
+  <div class="contents">
+    @yield('contents')
+  </div>
+  <div class="footer">
+    <p>&copy; 2021 March Yosugara</p>
+  </div>
   </div>
   <script>
     var _app_urls = {

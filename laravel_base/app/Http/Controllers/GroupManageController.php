@@ -22,8 +22,7 @@ class GroupManageController extends Controller
   public function index()
   {
     $groups = Auth::user()->getGroups();
-    $add_groups = Auth::user()->getAddGroups();
-    $items = compact('groups', 'add_groups');
+    $items = compact('groups');
 
     return view('group_manage', $items);
   }
@@ -49,7 +48,8 @@ class GroupManageController extends Controller
   // グループ作成
   public function create(Request $req)
   {
-    $validator = Validator::make($req->all(), $this->rules(true));
+    $form = $req->toArray();
+    $validator = Validator::make($req->all(), $this->rules($form));
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors()], 422);
     }
@@ -62,6 +62,7 @@ class GroupManageController extends Controller
     ];
 
     $ret = $this->service->createGroup($group_columns);
+    $ret_add = $this->service->addGroup($group_columns['group_id']);
     $message = $ret ? __('messages.group_manage.mes_grp_created') . $form['group_name'] : __('messages.group_manage.mes_grp_creat_failed');
 
     return response()->json(compact('ret', 'message'));
@@ -74,12 +75,13 @@ class GroupManageController extends Controller
     $message = '';
 
     $form = $req->toArray();
+    $search_type = $form['search_type'];
     $add_group_id = $form['add_group_id'];
     $add_group_pass = $form['add_group_pass'];
 
-    if (Auth::user()->checkGroupPass($add_group_id, $add_group_pass)) {
-      $ret = $this->service->addGroup($add_group_id);
-      $add_group = Groups::getGroup($add_group_id);
+    if (Auth::user()->checkGroupPass($search_type, $add_group_id, $add_group_pass)) {
+      $ret = $this->service->addGroup($add_group_id, $search_type);
+      $add_group = Groups::getGroup($add_group_id, $search_type);
       $message = $ret ? __('messages.group_manage.mes_grp_add') . $add_group->group_name : __('messages.group_manage.mes_grp_add_failed');
     } else {
       $ret = false;
@@ -109,27 +111,21 @@ class GroupManageController extends Controller
   public function update(Request $req)
   {
     $form = $req->toArray();
-    $group_id = $form['group_id'];
 
-    $validator = Validator::make($req->all(), $this->rules(false));
-    $validator->after(function ($validator) use ($group_id) {
-      $group = Groups::getGroup($group_id);
-      if (!isset($group)) {
-        $validator->errors()->add('group_id', $group_id . __('messages.group_manage.mes_grp_not_exist'));
-      }
-    });
+    $validator = Validator::make($req->all(), $this->rules($form));
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors()], 422);
     }
 
-    $group_columns = [
-      'group_id' => $form['group_id'],
-      'group_name' => $form['group_name'],
-      'group_pass' => $form['group_pass'],
-    ];
-
-    $ret = $this->service->updateGroup($group_columns);
-    $message = $ret ? __('messages.group_manage.mes_grp_updated') . $form['group_name'] : __('messages.group_manage.mes_grp_update_failed');
+    $ret = false;
+    $message = '';
+    if (Auth::user()->checkUpdateGroupPass($form['group_id'], $form['sign_group_pass'])) {
+      $ret = $this->service->updateGroup($form);
+      $message = $ret ? __('messages.group_manage.mes_grp_updated') . $form['group_name'] : __('messages.group_manage.mes_grp_update_failed');
+    } else {
+      $ret = false;
+      $message = __('messages.group_manage.mes_grp_update_auth_failed');
+    }
 
     return response()->json(compact('ret', 'message'));
   }
@@ -138,22 +134,57 @@ class GroupManageController extends Controller
   public function delete(Request $req)
   {
     $form = $req->toArray();
-    $group_id = $form['group_id'];
 
-    $ret = $this->service->deleteGroup($group_id);
-    $message = $ret ? __('messages.group_manage.mes_grp_deleted') . $group_id : __('messages.group_manage.mes_grp_delete_failed');
+    $ret = false;
+    $message = '';
+    $group = Groups::getGroup($form['group_id']);
+
+    //
+    if (!$group) {
+      $ret = false;
+      $message = __('messages.group_manage.mes_grp_delete_failed');
+    } else {
+      if (Auth::user()->checkUpdateGroupPass($group->group_id, $form['sign_group_pass'])) {
+        $ret = $this->service->deleteGroup($group->group_id);
+        $message = $ret ? __('messages.group_manage.mes_grp_deleted') . $group->group_name : __('messages.group_manage.mes_grp_delete_failed');
+      } else {
+        $ret = false;
+        $message = __('messages.group_manage.mes_grp_update_auth_failed');
+      }
+    }
 
     return response()->json(compact('ret', 'message'));
   }
 
-  private function rules($isCreate)
+  private function rules($form)
   {
-    $pass_required = $isCreate ? 'required' : 'nullable';
+    $rules = array();
 
-    return [
-      'group_name' => 'required|max:100',
-      'group_pass' => $pass_required . '|confirmed',
-      'group_pass_confirmation' => 'required_with:group_pass',
-    ];
+    if ($form['is_create'] == '1') {
+      // create
+      $rules = [
+        'group_name' => 'required|max:100|unique:groups',
+        'group_pass' => 'required|confirmed',
+        'group_pass_confirmation' => 'required',
+      ];
+    } else if (!$form['change_pass']) {
+      // update
+      $rules = [
+        'group_id' => 'required|exists:groups',
+        'group_name' => 'required|max:100|unique:groups,group_name,' . $form['group_id'] . ',group_id',
+        'sign_group_pass' => 'required',
+      ];
+    } else {
+      // updatepass
+      $rules = [
+        'group_id' => 'required|exists:groups',
+        'group_name' => 'required|max:100|unique:groups,group_name,' . $form['group_id'] . ',group_id',
+        'group_pass' => 'required|confirmed',
+        'group_pass_confirmation' => 'required',
+        'sign_group_pass' => 'required',
+      ];
+    }
+
+    return $rules;
   }
 }

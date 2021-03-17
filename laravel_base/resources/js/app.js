@@ -65,3 +65,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
     }
   }
 })();
+
+// グローバル
+window.m = {
+  switchDNone: function (id, disp = '') {
+    if (disp) {
+      $('#' + id).removeClass('d-none');
+    } else {
+      $('#' + id).addClass('d-none');
+    }
+  }
+};

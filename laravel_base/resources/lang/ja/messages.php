@@ -3,6 +3,11 @@
 return [
   'app_name' => 'March\'s Base',
 
+  'app' => [
+    'glist_title' => '所属グループ',
+    'mlist_title' => '【:group_name】メンバー',
+  ],
+
   'home' => [
     'subtitle' => 'ホーム',
     'card_title_mypage' => 'マイページ',
@@ -14,9 +19,14 @@ return [
 
   'group_manage' => [
     'subtitle' => 'グループ管理',
+    'join_group' => 'グループに参加する',
+    'create_group' => 'グループを作成する',
+    'rdo_id' => 'ID',
+    'rdo_name' => 'グループ名',
     'btn_edit' => 'グループ情報編集',
     'btn_remove' => 'グループ登録解除',
-    'btn_add' => 'グループ登録追加',
+    'btn_add' => 'グループ登録',
+    'ph_group_id' => 'グループ名 or ID',
     'ph_group_pass' => 'パスワード',
     'mes_grp_created' => 'グループ作成完了 : ',
     'mes_grp_creat_failed' => 'グループ作成失敗.',
@@ -27,6 +37,7 @@ return [
     'mes_grp_remove_failed' => 'グループ登録解除失敗.',
     'mes_grp_updated' => 'グループ更新完了 : ',
     'mes_grp_update_failed' => 'グループ更新失敗.',
+    'mes_grp_update_auth_failed' => 'グループ更新認証失敗.',
     'mes_grp_deleted' => 'グループ削除完了 : ',
     'mes_grp_delete_failed' => 'グループ削除失敗.',
     'mes_grp_not_exist' => ' は見つかりません.',
@@ -36,9 +47,13 @@ return [
     'subtitle_create' => 'グループ作成',
     'subtitle_update' => 'グループ情報編集',
     'ph_group_name' => 'グループ名',
-    'ph_group_pass' => 'パスワード',
-    'ph_group_pass_confirm' => 'パスワード(確認)',
-    'btn_commit' => '登録',
+    'ph_new_group_pass' => 'パスワード',
+    'ph_new_group_pass_confirm' => 'パスワード(確認)',
+    'ph_sign_group_pass' => '現在のパスワード',
+    'commit_sign' => '実行確認',
+    'change_pass' => 'パスワードを変更する',
+    'btn_create' => 'グループ作成',
+    'btn_update' => 'グループ更新',
     'btn_delete' => 'グループ削除',
   ],
 

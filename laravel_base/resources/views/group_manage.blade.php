@@ -14,6 +14,24 @@
 {{ __('messages.group_manage.subtitle') }}
 @endsection
 
+@section('gm_list')
+@auth
+@php
+$gm_title = \App\User::getGMTitle('G');
+$gm_list = \App\User::getGMList('G');
+@endphp
+@endauth
+<h5 class="card-title">{{ $gm_title }}</h5>
+@if(count($gm_list) > 0)
+<div class="list-group list-group-flush">
+  @foreach($gm_list as $item)
+  <a href="{{ route('group_edit', ['group_id' => $item['id']]) }}"
+    class="list-group-item list-group-item-action">{{ $item['name'] }}</a>
+  @endforeach
+</div>
+@endif
+@endsection
+
 @section('contents')
 @auth
 @foreach ($groups as $group)
@@ -33,21 +51,27 @@
   </div>
 </div>
 @endforeach
-@if(count($add_groups) > 0)
 <div class="card board">
-  <select name="add_group_id" id="add_group_id" class="form-control">
-    <option value=""></option>
-    @foreach($add_groups as $group)
-    <option value="{{ $group->group_id }}">{{ $group->group_name }}</option>
-    @endforeach
-  </select>
+  <h5 class="card_item">{{ __('messages.group_manage.join_group') }}</h5>
+  <div class='form-inline card_item'>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" id="add_group_type_name" name="search_type" class="custom-control-input" value="NAME" checked>
+      <label class="custom-control-label" for="add_group_type_name">{{ __('messages.group_manage.rdo_name') }}</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" id="add_group_type_id" name="search_type" class="custom-control-input" value="ID">
+      <label class="custom-control-label" for="add_group_type_id">{{ __('messages.group_manage.rdo_id') }}</label>
+    </div>
+  </div>
+  <input id="group_name" type="text" class="form-control" name="add_group_id" required maxlength="100"
+    placeholder="{{ __('messages.group_manage.ph_group_id') }}">
   <input id="add_group_pass" type="password" class="form-control" name="add_group_pass" required
     placeholder="{{ __('messages.group_manage.ph_group_pass') }}">
   <button id="btn_add" type="button" class=" btn btn-outline-info">
     {{ __('messages.group_manage.btn_add') }}</button>
 </div>
-@endif
 <div class="card board">
+  <h5 class="card_item">{{ __('messages.group_manage.create_group') }}</h5>
   <button id="btn_create" type="button" class=" btn btn-outline-secondary"
     onclick="location.href='{{ route('group_edit', ['group_id' => '0']) }}'">＋</button>
 </div>

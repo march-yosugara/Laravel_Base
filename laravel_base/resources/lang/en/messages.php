@@ -3,6 +3,11 @@
 return [
   'app_name' => 'March\'s Base',
 
+  'app' => [
+    'glist_title' => 'Your Groups',
+    'mlist_title' => '【:group_name】Members',
+  ],
+
   'home' => [
     'subtitle' => 'Home',
     'card_title_mypage' => 'My Page',
@@ -14,9 +19,14 @@ return [
 
   'group_manage' => [
     'subtitle' => 'Group Manage',
+    'join_group' => 'Join Group',
+    'create_group' => 'Create Group',
+    'rdo_id' => 'ID',
+    'rdo_name' => 'Group Name',
     'btn_edit' => 'Edit',
     'btn_remove' => 'Remove',
-    'btn_add' => 'Add',
+    'btn_add' => 'Join',
+    'ph_group_id' => 'Group Name or ID',
     'ph_group_pass' => 'Group Password',
     'mes_grp_created' => 'Group created : ',
     'mes_grp_create_failed' => 'Group create failed.',
@@ -27,6 +37,7 @@ return [
     'mes_grp_remove_failed' => 'Group remove failed.',
     'mes_grp_updated' => 'Group updated : ',
     'mes_grp_update_failed' => 'Group update failed.',
+    'mes_grp_update_auth_failed' => 'Group update authentication failed.',
     'mes_grp_deleted' => 'Group deleted : ',
     'mes_grp_delete_failed' => 'Group delete failed.',
     'mes_grp_not_exist' => ' is not exist.',
@@ -36,9 +47,13 @@ return [
     'subtitle_create' => 'Group Create',
     'subtitle_update' => 'Group Update',
     'ph_group_name' => 'Group Name',
-    'ph_group_pass' => 'Group Password',
-    'ph_group_pass_confirm' => 'Group Password Confirm',
-    'btn_commit' => 'Commit',
+    'ph_new_group_pass' => 'New Group Password',
+    'ph_new_group_pass_confirm' => 'New Group Password Confirm',
+    'ph_sign_group_pass' => 'Current Group Password',
+    'commit_sign' => 'Commit Confirmation',
+    'change_pass' => 'Change Password',
+    'btn_create' => 'Create',
+    'btn_update' => 'Update',
     'btn_delete' => 'Delete',
   ],
 
